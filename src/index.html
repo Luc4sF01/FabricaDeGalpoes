@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fábrica De Galpão</title>
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['Playfair Display', 'serif'],
+              monts: ['Montserrat', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .nav-link-effect {
+        position: relative;
+        display: inline-block;
+      }
+      .nav-link-effect::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #EF6220;
+        transition: width 0.3s ease-out;
+      }
+      .nav-link-effect:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#F5F7FA]">
+    
+    <div class="relative w-full h-screen min-h-[600px] flex flex-col bg-[#003B73]"> 
+      
+      <div class="absolute inset-0 z-0">
+        <img src="/img/bg-header.svg" class="w-full h-full object-cover" alt="Fundo Galpão">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+      </div>
+
+      <header class="relative z-20 w-full pt-6 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+          
+          <a href="index.html" class="flex-shrink-0">
+            <img class="w-40 md:w-[220px]" src="/img/Logo galpao.svg" alt="Fábrica de Galpão" />
+          </a>
+
+          <nav class="hidden md:block">
+            <ul class="flex gap-8 text-white bg-white/10 backdrop-blur-md border border-white/20 px-8 py-3 rounded-full shadow-lg">
+              <li><a href="index.html" class="text-[#EF6220] font-monts font-medium text-lg hover:text-[#EF6220] transition-colors nav-link-effect">Início</a></li>
+              <li><a href="produtos.html" class="text-white font-monts font-medium text-lg hover:text-[#EF6220] transition-colors nav-link-effect">Produtos</a></li>
+              <li><a href="sobre.html" class="text-white font-monts font-medium text-lg hover:text-[#EF6220] transition-colors nav-link-effect">Sobre Nós</a></li>
+              <li><a href="contato.html" class="text-white font-monts font-medium text-lg hover:text-[#EF6220] transition-colors nav-link-effect">Contato</a></li>
+            </ul>
+          </nav>
+
+          <a href="contato.html" class="hidden md:block bg-[#EF6220] text-white font-semibold px-6 py-2.5 rounded-md shadow-lg hover:bg-orange-600 hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
+            Fale Conosco
+          </a>
+
+          <button class="md:hidden text-white p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="relative z-10 flex-grow flex items-center px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2">
+          
+          <div class="text-white space-y-6 pt-10 md:pt-0 hero-content">
+            
+            <h1 class="text-4xl md:text-6xl lg:text-[64px] font-display font-bold leading-tight">
+              Tudo para seu galpão,<br />
+              da fundação às <br />
+              <span class="text-[#EF6220]">chaves na mão.</span>
+            </h1>
+            
+            <div class="h-0.5 w-[440px] bg-[#EF6220] rounded-full hero-line"></div>
+            
+            <p class="text-lg md:text-2xl text-gray-200 font-monts max-w-xl font-light leading-relaxed hero-text">
+              Materiais e soluções completas para construção de galpões industriais, com preço direto das fábricas.
+            </p>
+            
+           <div class="pt-4">
+              <a href="contato.html" class="bg-transparent border-2 border-white text-white font-semibold px-10 py-4 rounded text-lg hover:bg-white hover:text-[#00417E] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
+                Solicitar Orçamento
+              </a>
+            </div>
+
+          </div>
+
+          <div class="hidden lg:block"></div>
+
+        </div>
+      </div>
+    </div>
+
+    <section class="bg-[#F5F7FA] py-20">
+      <div class="max-w-7xl mx-auto px-4">
+        <h1 class="font-display text-4xl md:text-[58px] text-[#00417E] font-semibold mb-6">
+          Nossas Soluções Completas
+        </h1>
+        <p class="font-monts text-xl md:text-[24px] mb-12 text-gray-600">
+          Materiais e estruturas para <span class="text-[#00417E] font-bold">TODOS</span> os tipos de galpões
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="tilt bg-[#DBDBDB] p-6 rounded-lg shadow-md border border-blue-600 flex flex-col items-center text-center group hover:bg-white transition-colors duration-300">
+            <div class="h-40 w-full mb-4 flex items-center justify-center">
+               <img src="/img/card-1.svg" alt="Estruturas Metálicas" class="max-h-full max-w-full object-contain" />
+            </div>
+            <h3 class="text-xl md:text-[28px] font-bold font-monts text-blue-800 mb-3 group-hover:text-[#EF6220] transition-colors">
+              Estruturas Metálicas
+            </h3>
+            <p class="text-gray-700 text-lg font-monts font-medium">
+              Projetamos e fabricamos esqueletos metálicos robustos e sob medida. Soluções de alta durabilidade.
+            </p>
+          </div>
+
+          <div class="tilt bg-[#DBDBDB] p-6 rounded-lg shadow-md border border-blue-600 flex flex-col items-center text-center group hover:bg-white transition-colors duration-300">
+            <div class="h-40 w-full mb-4 flex items-center justify-center">
+                <img src="/img/card-2.svg" alt="Coberturas" class="max-h-full max-w-full object-contain" />
+            </div>
+            <h3 class="text-xl md:text-[28px] font-monts font-bold text-blue-800 mb-3 group-hover:text-[#EF6220] transition-colors">
+              Coberturas e Fechamentos
+            </h3>
+            <p class="text-gray-700 text-lg font-monts font-medium">
+              Soluções completas em telhas metálicas e termoacústicas, garantindo isolamento e segurança.
+            </p>
+          </div>
+
+          <div class="tilt bg-[#DBDBDB] p-6 rounded-lg shadow-md border border-blue-600 flex flex-col items-center text-center group hover:bg-white transition-colors duration-300">
+            <div class="h-40 w-full mb-4 flex items-center justify-center">
+                <img src="/img/card-3.svg" alt="Turnkey" class="max-h-full max-w-full object-contain" />
+            </div>
+            <h3 class="text-xl md:text-[28px] font-bold font-monts text-blue-800 mb-3 group-hover:text-[#EF6220] transition-colors">
+              Projetos Turnkey
+            </h3>
+            <p class="text-gray-700 text-lg font-monts font-medium">
+              Cuidamos de tudo, da fundação ao acabamento final. 100% da obra gerenciada por nós.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/src/produtos.html" class="inline-flex items-center justify-center px-8 py-3 text-base font-monts font-semibold rounded-lg text-blue-600 bg-[#D9D9D9] hover:bg-blue-700 shadow-lg hover:text-white transition duration-150 ease-in-out border-2 border-blue-500">
+            Veja todos os produtos & serviços →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#D9D9D9] py-20">
+      <div class="max-w-7xl mx-auto px-4">
+        
+        <div class="text-center mb-12">
+          <h1 class="font-display text-4xl md:text-[58px] text-[#00417E] font-semibold">
+            Conheça nossos principais produtos
+          </h1>
+          <div class="flex justify-center my-4">
+            <div class="h-0.5 w-[900px] bg-black rounded-full mt-2"></div>
+          </div>
+          <p class="font-monts text-xl text-gray-700">
+            Soluções completas em coberturas e estruturas metálicas
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white px-2 py-4 flex flex-col items-center text-center rounded-lg shadow h-full justify-between">
+            <img src="/img/Telhas Galvalume.svg" alt="" class="h-40 w-full object-contain mb-4" />
+            <div class="flex flex-col items-center flex-grow">
+                <h3 class="text-[32px] text-[#00417E] font-monts font-bold mt-2">Telhas Galvalume</h3>
+                <p class="text-[20px] font-monts mt-2">Alta durabilidade e resistência.</p>
+            </div>
+            <a href="contato.html" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow hover:border-white hover:shadow-[0_0_10px_2px_rgba(37,99,235,0.7)] transition-all duration-300 mt-6 mb-2">Solicite Orçamento</a>
+          </div>
+
+          <div class="bg-white px-2 py-4 flex flex-col items-center text-center rounded-lg shadow h-full justify-between">
+            <img src="/img/Telhas Termoacústicas.svg" alt="" class="h-40 w-full object-contain mb-4" />
+            <div class="flex flex-col items-center flex-grow">
+                <h3 class="text-[32px] text-[#00417E] font-monts font-bold mt-2">Telhas Termoacústicas</h3>
+                <p class="text-[20px] font-monts mt-2">Conforto térmico e acústico.</p>
+            </div>
+            <a href="contato.html" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow hover:border-white hover:shadow-[0_0_10px_2px_rgba(37,99,235,0.7)] transition-all duration-300 mt-6 mb-2">Solicite Orçamento</a>
+          </div>
+
+          <div class="bg-white px-2 py-4 flex flex-col items-center text-center rounded-lg shadow h-full justify-between">
+            <img src="/img/Estruturas metálicas.svg" alt="" class="h-40 w-full object-contain mb-4" />
+            <div class="flex flex-col items-center flex-grow">
+                <h3 class="text-[32px] text-[#00417E] font-monts font-bold mt-2">Estruturas Metálicas</h3>
+                <p class="text-[20px] font-monts mt-2">Projetadas sob medida.</p>
+            </div>
+            <a href="contato.html" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow hover:border-white hover:shadow-[0_0_10px_2px_rgba(37,99,235,0.7)] transition-all duration-300 mt-6 mb-2">Solicite Orçamento</a>
+          </div>
+
+          <div class="bg-white px-2 py-4 flex flex-col items-center text-center rounded-lg shadow h-full justify-between">
+            <img src="/img/Venezianas Industriais.svg" alt="" class="h-40 w-full object-contain mb-4" />
+            <div class="flex flex-col items-center flex-grow">
+                <h3 class="text-[32px] text-[#00417E] font-monts font-bold mt-2">Venezianas Industriais</h3>
+                <p class="text-[20px] font-monts mt-2">Ventilação e iluminação natural.</p>
+            </div>
+            <a href="contato.html" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow hover:border-white hover:shadow-[0_0_10px_2px_rgba(37,99,235,0.7)] transition-all duration-300 mt-6 mb-2">Solicite Orçamento</a>
+          </div>
+
+          <div class="bg-white px-2 py-4 flex flex-col items-center text-center rounded-lg shadow h-full justify-between">
+            <img src="/img/Lanternins e Domus.svg" alt="" class="h-40 w-full object-contain mb-4" />
+            <div class="flex flex-col items-center flex-grow">
+                <h3 class="text-[32px] text-[#00417E] font-monts font-bold mt-2">Lanternins e Domus</h3>
+                <p class="text-[20px] font-monts mt-2">Eficiência energética.</p>
+            </div>
+            <a href="contato.html" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow hover:border-white hover:shadow-[0_0_10px_2px_rgba(37,99,235,0.7)] transition-all duration-300 mt-6 mb-2">Solicite Orçamento</a>
+          </div>
+
+          <div class="bg-white px-2 py-4 flex flex-col items-center text-center rounded-lg shadow h-full justify-between">
+            <img src="/img/Pisos Industriais.svg" alt="" class="h-40 w-full object-contain mb-4" />
+            <div class="flex flex-col items-center flex-grow">
+                <h3 class="text-[32px] text-[#00417E] font-monts font-bold mt-2">Pisos Industriais</h3>
+                <p class="text-[20px] font-monts mt-2">Alta resistência para cargas.</p>
+            </div>
+            <a href="contato.html" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow hover:border-white hover:shadow-[0_0_10px_2px_rgba(37,99,235,0.7)] transition-all duration-300 mt-6 mb-2">Solicite Orçamento</a>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="produtos.html" class="bg-[#EF6220] text-white border border-blue-600 px-10 py-3 rounded-md shadow hover:border-white hover:shadow-[0_0_10px_2px_rgba(37,99,235,0.7)] transition-all duration-300 font-monts font-semibold">
+                Ver Catálogo Completo
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#003B73] py-20 relative overflow-hidden">
+  
+  <div class="absolute top-0 left-0 -mt-20 -ml-20 w-96 h-96 bg-[#EF6220] rounded-full opacity-10 blur-[100px]"></div>
+  <div class="absolute bottom-0 right-0 -mb-20 -mr-20 w-96 h-96 bg-blue-400 rounded-full opacity-10 blur-[100px]"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-[#EF6220] font-monts font-bold tracking-wider text-sm uppercase">Excelência Construtiva</span>
+      <h2 class="text-3xl md:text-5xl font-display font-bold text-white mt-2 mb-6">
+        Por que sua obra deve ser feita conosco?
+      </h2>
+      <p class="text-lg font-monts text-gray-300">
+        Unimos engenharia de ponta com negociação direta da indústria. O resultado é uma obra mais barata, mais rápida e muito mais segura.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
+        <div class="w-14 h-14 bg-[#EF6220]/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#EF6220] transition-colors duration-300">
+          <svg class="w-8 h-8 text-[#EF6220] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-display font-bold text-white mb-4">Custo Otimizado</h3>
+        <p class="font-monts text-gray-300 text-sm leading-relaxed">
+          Cortamos os intermediários. Compramos aço e materiais direto das usinas e grandes fabricantes, garantindo o <strong>menor custo por m²</strong> do mercado sem perder qualidade.
+        </p>
+      </div>
+
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
+        <div class="w-14 h-14 bg-[#EF6220]/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#EF6220] transition-colors duration-300">
+          <svg class="w-8 h-8 text-[#EF6220] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-display font-bold text-white mb-4">Entrega Acelerada</h3>
+        <p class="font-monts text-gray-300 text-sm leading-relaxed">
+          Nossa metodologia "Turnkey" (Chave na Mão) e equipes especializadas reduzem o tempo de obra em até <strong>30%</strong> comparado a construções tradicionais.
+        </p>
+      </div>
+
+      <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
+        <div class="w-14 h-14 bg-[#EF6220]/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#EF6220] transition-colors duration-300">
+          <svg class="w-8 h-8 text-[#EF6220] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-display font-bold text-white mb-4">Garantia Total</h3>
+        <p class="font-monts text-gray-300 text-sm leading-relaxed">
+          Utilizamos apenas materiais certificados e normatizados. Sua estrutura é projetada para durar gerações, com <strong>baixa manutenção</strong> e máxima segurança.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-16">
+            <a href="contato.html" class="bg-[#EF6220] text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:bg-orange-600 hover:shadow-orange-500/30 hover:scale-105 transition-all duration-300 border border-transparent">
+        Quero um Orçamento Personalizado
+      </a>
+    </div>
+
+  </div>
+</section>
+
+    <section class="bg-[#D1D1D1] py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-4 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          
+          <div class="text-left">
+            <h2 class="text-[28px] md:text-[48px] text-[#00417E] font-display font-semibold mb-6 leading-tight">
+              Referência em Galpões em todo o Brasil
+            </h2>
+            
+            <p class="text-black text-lg font-monts leading-relaxed mb-6">
+              Há anos transformando aço em grandes negócios. Nossa missão vai além de construir estruturas: criamos um ecossistema de parceiros satisfeitos.
+            </p>
+
+            <div class="flex gap-6 mb-8 border-l-4 border-[#EF6220] pl-4">
+              <div>
+                <span class="block text-3xl font-bold text-[#00417E]">
+                  +<span class="counter" data-target="500">0</span>
+                </span>
+                <span class="text-sm font-semibold text-gray-700">Obras Entregues</span>
+              </div>
+              <div>
+                <span class="block text-3xl font-bold text-[#00417E]">
+                  <span class="counter" data-target="95">0</span>%
+                </span>
+                <span class="text-sm font-semibold text-gray-700">Satisfação</span>
+              </div>
+            </div>
+
+            <a href="/src/sobre.html" class="inline-flex bg-[#EF6220] text-white font-bold py-3 px-8 rounded-md border border-[#00417E] shadow-lg items-center gap-2 hover:bg-[#d9551a] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              Conheça Nossa História
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -top-4 -right-4 w-full h-full border-2 border-[#00417E] rounded-lg hidden md:block"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Equipe na fábrica de galpões" 
+              class="relative w-full h-auto rounded-lg shadow-2xl grayscale hover:grayscale-0 transition duration-500 object-cover aspect-video"
+            >
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="font-monts">
+      <div class="bg-[#00417E] text-white py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div class="space-y-6">
+              <img src="/img/logo-branca.svg" alt="Fábrica de Galpão" class="h-16 w-auto" />
+              <p class="text-sm leading-relaxed text-gray-200">
+                Soluções completas em estruturas e coberturas metálicas para o seu projeto
+              </p>
+              <div class="text-sm space-y-1 text-gray-200 pt-2">
+                <p>Av. Principal, 1234 - Bairro</p>
+                <p>Belo Horizonte , MG</p>
+                <p class="font-bold pt-1">+55(31) 9 9559-4889</p>
+                <p>comercial@fabricadegalpoes.com.br</p>
+              </div>
+            </div>
+
+            <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
+              <h3 class="text-xl font-bold mb-6">Links Rápidos</h3>
+              <ul class="space-y-3 text-sm font-medium text-gray-200">
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Quem somos</a></li>
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Produtos</a></li>
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Contato</a></li>
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Início</a></li>
+              </ul>
+            </div>
+
+            <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
+              <h3 class="text-xl font-bold mb-6">Produtos</h3>
+              <ul class="space-y-3 text-sm font-medium text-gray-200">
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Telhas Galvalume</a></li>
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Telhas Termoacústicas</a></li>
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Estruturas Metálicas</a></li>
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Venezianas Industriais</a></li>
+                <li><a href="#" class="hover:text-white hover:underline transition-all">Pisos Industriais</a></li>
+              </ul>
+            </div>
+
+            <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
+              <h3 class="text-xl font-bold mb-6">Contate - nos</h3>
+              <div class="flex gap-4">
+                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="/img/wpp-icon.svg" alt="WhatsApp" class="w-10 h-10" /></a>
+                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="/img/email.svg" alt="Email" class="w-10 h-10" /></a>
+                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="/img/telefone.svg" alt="Telefone" class="w-10 h-10" /></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#8C8C8C] text-white py-8 text-center px-4">
+        <div class="font-serif italic text-xl md:text-2xl leading-relaxed">
+          “O Senhor firmará a obra das nossas mãos.”
+        </div>
+        <div class="font-serif italic text-lg mt-2 opacity-90">
+          — Salmos 90:17
+        </div>
+      </div>
+
+      <div class="bg-[#002242] text-white py-4 text-center text-xs font-semibold tracking-wide">
+        © 2025 Fábrica de Galpões — Todos os direitos reservados.
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+      VanillaTilt.init(document.querySelectorAll('.tilt'), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.25,
+        scale: 1.05,
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+     gsap.registerPlugin(ScrollTrigger);
+
+  const counters = document.querySelectorAll('.counter');
+
+  counters.forEach((counter) => {
+    const targetValue = counter.getAttribute('data-target');
+    let obj = { value: 0 };
+
+    gsap.to(obj, {
+      value: targetValue,
+      duration: 2.5, 
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: counter,
+        start: "top 85%", 
+        toggleActions: "play none none none"
+      },
+      onUpdate: function() {
+        counter.innerText = Math.ceil(obj.value);
+      }
+    });
+  });
+
+  
+
+      
+      gsap.from("h1", { 
+        opacity: 0, 
+        y: 30,
+        duration: 1, 
+        ease: "power3.out", 
+        delay: 0.2 
+      });
+
+      gsap.from(".hero-line", { 
+        width: 0, 
+        duration: 1, 
+        ease: "power3.out", 
+        delay: 0.8 
+      });
+
+      gsap.from(".hero-text", { 
+        opacity: 0, 
+        x: -20, 
+        duration: 1, 
+        ease: "power3.out", 
+        delay: 0.5 
+      });
+
+  
+    </script>
+  </body>
+</html>
