@@ -15,13 +15,13 @@ Acesse o site online:
 
 HTML5
 
-CSS3
-
 JavaScript
 
-TailwindCSS (opcional, se estiver usando)
+TailwindCSS 
 
 Google Fonts
+
+GSAP
 
 Layout inspirado em design corporativo moderno, com foco em clareza e profissionalismo.
 
