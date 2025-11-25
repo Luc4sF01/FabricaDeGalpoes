@@ -9,6 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -47,10 +49,17 @@
       .nav-link-effect:hover::after {
         width: 100%;
       }
+      /* Estilos para o menu mobile (Hamburger) */
+      .mobile-menu-open {
+          transform: translateX(0);
+      }
+      .mobile-menu-closed {
+          transform: translateX(100%);
+      }
     </style>
   </head>
 
-  <body class="bg-[#E6E6E6] overflow-x-hidden pb-20 md:pb-0"> 
+  <body class="bg-[#E6E6E6] overflow-x-hidden pb-20 md:pb-0 font-monts"> 
     
     <header class="w-full py-4 px-4 sm:px-8 bg-[#E6E6E6] z-50 relative">
       <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -68,16 +77,31 @@
           </ul>
         </nav>
 
-        <button class="hidden md:block bg-[#EF6220] text-white font-semibold px-6 py-2.5 rounded-md shadow-lg hover:bg-orange-600 hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-0.5 text-sm">
+        <a href="contato.html" class="hidden md:block bg-[#EF6220] text-white font-semibold px-6 py-2.5 rounded-md shadow-lg hover:bg-orange-600 hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-0.5 text-sm">
           Fale Conosco
-        </button>
+        </a>
 
-        <button class="md:hidden text-[#003B73] p-2">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <button id="mobile-menu-button" class="md:hidden text-[#003B73] p-2 z-50">
+          <svg id="icon-open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
     </header>
 
+    <nav id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-[#003B73] text-white p-6 md:hidden transition-transform duration-300 mobile-menu-closed z-40 shadow-xl">
+      <h3 class="text-2xl font-display font-bold mb-8 mt-16 text-[#EF6220]">Navegação</h3>
+      <ul class="space-y-6">
+          <li><a href="index.html" class="text-white font-monts font-medium text-xl hover:text-[#EF6220] transition-colors">Início</a></li>
+          <li><a href="produtos.html" class="text-white font-monts font-medium text-xl hover:text-[#EF6220] transition-colors">Produtos</a></li>
+          <li><a href="sobre.html" class="text-white font-monts font-medium text-xl hover:text-[#EF6220] transition-colors">Sobre Nós</a></li>
+          <li><a href="contato.html" class="text-white font-monts font-medium text-xl hover:text-[#EF6220] transition-colors">Contato</a></li>
+      </ul>
+      <div class="mt-12">
+          <a href="contato.html" class="block w-full text-center bg-[#EF6220] text-white font-semibold px-6 py-3 rounded-md shadow-lg hover:bg-orange-600 transition-all duration-300">
+              Fale Conosco
+          </a>
+      </div>
+    </nav>
     <div class="relative w-full h-[350px] flex flex-col justify-center items-center">
       <div class="absolute inset-0 z-0">
         <img src="./img/fundo-header-produtos.svg" class="w-full h-full object-cover" alt="Estrutura Metálica">
@@ -116,153 +140,193 @@
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">KINGSPAN</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Kingspan"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Cinto de segurança p/ altura</li>
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Telhas PIR / EPS / Coloniais</li>
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Telha Zipada</li>
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Painéis Fachada / Frigoríficos</li>
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Portas / TPO com Deck</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Cinto de segurança p/ altura</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Telhas PIR / EPS / Coloniais</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Telha Zipada</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Painéis Fachada / Frigoríficos</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Portas / TPO com Deck</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/Portfolio-Kingspan-1-1-1.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">TERMOGOIÁS</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Termogoiás"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Telhas PIR</li>
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Telhas EPS</li>
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Telhas metálicas</li>
-                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Painéis isotérmicos</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Telhas PIR</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Telhas EPS</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Telhas metálicas</li>
+                <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Painéis isotérmicos</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/Portfolio-Termoogias-2023-1-1-1.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">FIBRAMACRO</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Fibramacro"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Macrofibras</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Microfibras de Vidro</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Microfibras de polipropileno</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Macrofibras</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Microfibras de Vidro</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Microfibras de polipropileno</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/PRODUTOS-FIBRAMACRO-1-1-1.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">REGIONAL TELHAS</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Regional Telhas"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Ondulada / Trapezoidal / Multidobra</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Cumeeira / Calandrada</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Translúcida / Termoacústica</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Rufos e Perfis</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Ondulada / Trapezoidal / Multidobra</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Cumeeira / Calandrada</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Translúcida / Termoacústica</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Rufos e Perfis</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/Portfolio-Regional-Telhas-2022-1-1.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">RIPADO WPC</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Ripado WPC"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Deck</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Brise</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Rodapé</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Ripado Business</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Deck</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Brise</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Rodapé</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Ripado Business</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/CATALOGO-RIPADO-WPC-POLIGNUM-1-1.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">GALVAMINAS</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Galvaminas"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Portas Automáticas</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Telhas e Chapas</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Barras</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Cumeeiras e Calhas</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Portas Automáticas</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Telhas e Chapas</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Barras</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Cumeeiras e Calhas</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/APRESENTACAO-GALVAMINAS-2-1.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">3TC</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo 3TC"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Painéis Térmicos</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Mantas Térmicas</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Painéis Térmicos</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Mantas Térmicas</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/16692339349313TC-Isolamento_catalogo-produtos_2022.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">POLIEXPAND</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Poliexpand"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Molduras de Poliuretano</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Molduras de Poliuretano</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/poliexpand-Molduras.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-2xl font-display font-bold text-[#003B73]">FUPLASTIC</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Fuplastic"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Caixas de Passagem</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Containers</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Termoacústica p/ Aves</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Caixas de Passagem</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Containers</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Termoacústica p/ Aves</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/LinhaCompletaFubox2017.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
             <div class="product-card bg-white rounded-xl shadow-xl p-5 border-t-4 border-[#003B73] opacity-0 flex flex-col h-full">
               <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-4">
                 <h3 class="text-xl font-display font-bold text-[#003B73]">ROBERTS SISTEMAS</h3>
-                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50"></div>
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center"><img src="./img/Logo galpao.svg" class="w-10 opacity-50" alt="Logo Roberts Sistemas"></div>
               </div>
               <ul class="space-y-2 mb-6 font-monts text-sm text-gray-700 flex-grow">
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Ventiladores Naturais</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Domus Prismáticos</li>
-                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5"> Venezianas Industriais</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Ventiladores Naturais</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Domus Prismáticos</li>
+                 <li class="flex items-center gap-2"><img src="./img/check.svg" class="w-5 h-5" alt="check"> Venezianas Industriais</li>
               </ul>
               <div class="flex flex-col gap-3 mt-auto">
-                <button class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide">Baixar Catálogo</button>
+                <a href="./catalogos/APRESENTACAO-ROBERTS.pdf" download 
+   class="w-full bg-transparent border-2 border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white text-sm font-bold py-2.5 rounded-lg transition-all uppercase tracking-wide text-center">
+   Baixar Catálogo
+</a>
+
               </div>
             </div>
 
@@ -273,33 +337,29 @@
               
               <div class="bg-[#0F62C1] p-6">
                 <h3 class="text-white font-monts font-bold text-xl">Solicite um orçamento</h3>
-                <p class="text-blue-100 text-xs mt-1 font-monts">Receba sua cotação em 24h</p>
+                <p class="text-blue-100 text-xs mt-1 font-monts">Fale diretamente com nosso vendedor!</p>
               </div>
 
-              <div class="p-6 space-y-4">
+              <form id="whatsapp-form" class="p-6 space-y-4">
+                <p class="text-gray-700 text-sm mb-4">
+                    Digite seu nome e clique em "Enviar" para iniciar uma conversa no WhatsApp.
+                </p>
                 <div>
-                  <input type="text" placeholder="Nome" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#0F62C1] font-monts transition-colors" />
+                  <input type="text" id="client-name" name="name" placeholder="Seu Nome Completo" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#0F62C1] font-monts transition-colors" required />
                 </div>
-                <div>
-                  <input type="email" placeholder="e-mail" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#0F62C1] font-monts transition-colors" />
-                </div>
-                <div>
-                  <textarea placeholder="Mensagem" rows="3" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#0F62C1] font-monts transition-colors resize-none"></textarea>
-                </div>
-
-                <button class="w-full bg-[#0F62C1] hover:bg-blue-700 text-white font-bold py-3 rounded shadow-md transition-all duration-300 mt-4 transform hover:scale-105">
-                  ENVIAR SOLICITAÇÃO
+                
+                <button type="submit" class="w-full bg-[#EF6220] hover:bg-orange-600 text-white font-bold py-3 rounded shadow-md transition-all duration-300 mt-4 transform hover:scale-105 uppercase">
+                  Enviar Mensagem agora!!!!
                 </button>
 
                 <div class="pt-4 border-t border-gray-100 text-center">
-                  <p class="text-gray-500 font-monts text-sm">Ou ligue: (31) 99559-4889</p>
+                  <p class="text-gray-500 font-monts text-sm">Ou ligue: <a href="tel:+5531995594889" class="text-[#0F62C1] font-bold">(31) 99559-4889</a></p>
                 </div>
-              </div>
+              </form>
 
             </div>
           </div>
-
-        </div>
+          </div>
       </div>
     </section>
 
@@ -330,30 +390,36 @@
             <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
               <h3 class="text-xl font-bold mb-6">Links Rápidos</h3>
               <ul class="space-y-3 text-sm font-medium text-gray-200">
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Quem somos</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Produtos</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Contato</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Início</a></li>
+                <li><a href="sobre.html" class="hover:text-white hover:underline transition-all">Quem somos</a></li>
+                <li><a href="produtos.html" class="hover:text-white hover:underline transition-all">Produtos</a></li>
+                <li><a href="contato.html" class="hover:text-white hover:underline transition-all">Contato</a></li>
+                <li><a href="index.html" class="hover:text-white hover:underline transition-all">Início</a></li>
               </ul>
             </div>
 
             <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
               <h3 class="text-xl font-bold mb-6">Produtos</h3>
               <ul class="space-y-3 text-sm font-medium text-gray-200">
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Telhas Galvalume</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Telhas Termoacústicas</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Estruturas Metálicas</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Venezianas Industriais</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Pisos Industriais</a></li>
+                <li><a href="#orcamento" class="hover:text-white hover:underline transition-all">Telhas Galvalume</a></li>
+                <li><a href="#orcamento" class="hover:text-white hover:underline transition-all">Telhas Termoacústicas</a></li>
+                <li><a href="#orcamento" class="hover:text-white hover:underline transition-all">Estruturas Metálicas</a></li>
+                <li><a href="#orcamento" class="hover:text-white hover:underline transition-all">Venezianas Industriais</a></li>
+                <li><a href="#orcamento" class="hover:text-white hover:underline transition-all">Pisos Industriais</a></li>
               </ul>
             </div>
 
             <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
               <h3 class="text-xl font-bold mb-6">Contate - nos</h3>
               <div class="flex gap-4">
-                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="./img/wpp-icon.svg" alt="WhatsApp" class="w-10 h-10" /></a>
-                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="./img/email.svg" alt="Email" class="w-10 h-10" /></a>
-                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="./img/telefone.svg" alt="Telefone" class="w-10 h-10" /></a>
+                <a href="https://wa.me/5531995594889" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform duration-300">
+                  <img src="./img/wpp-icon.svg" alt="WhatsApp" class="w-10 h-10" />
+                </a>
+                <a href="mailto:comercial@fabricadegalpoes.com.br" class="hover:scale-110 transition-transform duration-300">
+                  <img src="./img/email.svg" alt="Email" class="w-10 h-10" />
+                </a>
+                <a href="tel:+5531995594889" class="hover:scale-110 transition-transform duration-300">
+                  <img src="./img/telefone.svg" alt="Telefone" class="w-10 h-10" />
+                </a>
               </div>
             </div>
 
@@ -379,32 +445,87 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-       gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
-       // Animações
-       gsap.from(".hero-title", { opacity: 0, y: 40, duration: 1, ease: "power3.out", delay: 0.2 });
-       gsap.from(".hero-text", { opacity: 0, y: 20, duration: 1, ease: "power3.out", delay: 0.4 });
+        // Animações
+        gsap.from(".hero-title", { opacity: 0, y: 40, duration: 1, ease: "power3.out", delay: 0.2 });
+        gsap.from(".hero-text", { opacity: 0, y: 20, duration: 1, ease: "power3.out", delay: 0.4 });
 
-       gsap.from(".intro-content h2, .intro-content p, .intro-content .flex", {
-         scrollTrigger: { trigger: ".intro-content", start: "top 80%" },
-         opacity: 0, y: 30, duration: 0.8, stagger: 0.2
-       });
-       gsap.from(".intro-line", {
+        gsap.from(".intro-content h2, .intro-content p, .intro-content .flex", {
+          scrollTrigger: { trigger: ".intro-content", start: "top 80%" },
+          opacity: 0, y: 30, duration: 0.8, stagger: 0.2
+        });
+        gsap.from(".intro-line", {
           scrollTrigger: { trigger: ".intro-content", start: "top 80%" },
           scaleX: 0, duration: 1, ease: "power3.out"
-       });
+        });
 
-       // Cards com Stagger
-       gsap.to(".product-card", {
-         scrollTrigger: { trigger: ".product-card", start: "top 65%" },
-         opacity: 1, y: 0, duration: 4, stagger: 0.2, ease: "power2.out", from: { y: 50 }
-       });
+        // Cards com Stagger
+        gsap.to(".product-card", {
+          scrollTrigger: { trigger: ".product-card", start: "top 65%" },
+          opacity: 1, y: 0, duration: 1.5, stagger: 0.2, ease: "power2.out", from: { y: 50 }
+        });
 
-       // Form lateral
-       gsap.to(".contact-form", {
+        // Form lateral
+        gsap.to(".contact-form", {
           scrollTrigger: { trigger: ".contact-form", start: "top 85%" },
           opacity: 1, x: 0, duration: 1, ease: "power3.out", from: { x: 50 }
-       });
+        });
+        
+        /* LÓGICA DO MENU HAMBURGER */
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+
+        menuButton.addEventListener('click', () => {
+            // Toggle da classe de transformação para deslizar o menu
+            mobileMenu.classList.toggle('mobile-menu-closed');
+            mobileMenu.classList.toggle('mobile-menu-open');
+            
+            // Toggle dos ícones
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+
+            // Adiciona/Remove classe no body para desabilitar o scroll ao abrir o menu
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        // Fechar menu ao clicar em um link (opcional, mas recomendado)
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('mobile-menu-open')) {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    mobileMenu.classList.add('mobile-menu-closed');
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            });
+        });
+
+        /* LÓGICA DE ENVIO DO FORMULÁRIO PARA WHATSAPP */
+        document.getElementById('whatsapp-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio tradicional do formulário
+            
+            const clientName = document.getElementById('client-name').value;
+            const phoneNumber = '5531995594889'; // Seu número (DDD + Número, sem caracteres especiais)
+            
+            // Cria a mensagem pré-preenchida
+            let message = `Olá! Meu nome é ${clientName}. 
+            Estou interessado(a) nos produtos para galpões que vi no site e gostaria de um orçamento.
+            Qual o próximo passo?`;
+
+            // Codifica a mensagem para URL
+            const encodedMessage = encodeURIComponent(message.trim());
+            
+            // Cria o link do WhatsApp
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Redireciona o usuário
+            window.open(whatsappLink, '_blank');
+        });
     </script>
   </body>
 </html>

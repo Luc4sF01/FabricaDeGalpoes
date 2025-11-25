@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+
 
     <script>
       tailwind.config = {
@@ -21,6 +23,7 @@
               'brand-blue': '#003B73',
               'brand-orange': '#EF6220',
               'brand-dark': '#1E2638',
+              'deep-blue': '#002242', // Usado no novo CTA
             },
             boxShadow: {
               'soft': '0 20px 40px -15px rgba(0, 0, 0, 0.1)',
@@ -41,10 +44,17 @@
         transition: width 0.3s ease-out;
       }
       .nav-link-effect:hover::after { width: 100%; }
+      /* Estilos para o menu mobile (Hamburger) */
+      .mobile-menu-open {
+          transform: translateX(0);
+      }
+      .mobile-menu-closed {
+          transform: translateX(100%);
+      }
     </style>
   </head>
 
-  <body class="bg-[#F5F7FA] overflow-x-hidden"> 
+  <body class="bg-[#F5F7FA] overflow-x-hidden font-monts"> 
     
     <div class="relative w-full h-[80vh] min-h-[600px] flex flex-col overflow-hidden">
       <div class="absolute inset-0 z-0 parallax-bg will-change-transform">
@@ -60,20 +70,37 @@
           <nav class="hidden md:block">
             <ul class="flex items-center gap-8 bg-[#EAEAEA]/90 backdrop-blur-md border border-white/40 px-10 py-3 rounded-full shadow-lg text-[#1A1A1A]">
              <li><a href="index.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Início<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
-              <li><a href="produtos.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Produtos<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
-              <li><a href="sobre.html" class="font-monts font-bold text-sm text-[#EF6220] border-b-2 border-[#EF6220] pb-0.5">Sobre Nós</a></li>
-              <li><a href="contato.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Contato<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
+             <li><a href="produtos.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Produtos<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
+             <li><a href="sobre.html" class="font-monts font-bold text-sm text-[#EF6220] border-b-2 border-[#EF6220] pb-0.5">Sobre Nós</a></li>
+             <li><a href="contato.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Contato<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
             </ul>
           </nav>
-          <button class="hidden md:block bg-[#EAEAEA]/90 backdrop-blur-md border border-[#003B73] text-[#003B73] font-bold text-xs px-6 py-3 rounded shadow-lg hover:bg-[#003B73] hover:text-white transition-all duration-300 uppercase tracking-wide">
+
+          <a href="contato.html" class="hidden md:block bg-[#EAEAEA]/90 backdrop-blur-md border border-[#003B73] text-[#003B73] font-bold text-xs px-6 py-3 rounded shadow-lg hover:bg-[#003B73] hover:text-white transition-all duration-300 uppercase tracking-wide">
             Entre em contato conosco
-          </button>
-          <button class="md:hidden text-white p-2 bg-white/10 backdrop-blur-md rounded border border-white/20">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </a>
+
+          <button id="mobile-menu-button" class="md:hidden text-white p-2 bg-white/10 backdrop-blur-md rounded border border-white/20 z-50">
+            <svg id="icon-open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
       </header>
 
+      <nav id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-brand-blue text-white p-6 md:hidden transition-transform duration-300 mobile-menu-closed z-40 shadow-xl">
+        <h3 class="text-2xl font-display font-bold mb-8 mt-16 text-brand-orange">Navegação</h3>
+        <ul class="space-y-6">
+            <li><a href="index.html" class="text-white font-monts font-medium text-xl hover:text-brand-orange transition-colors">Início</a></li>
+            <li><a href="produtos.html" class="text-white font-monts font-medium text-xl hover:text-brand-orange transition-colors">Produtos</a></li>
+            <li><a href="sobre.html" class="text-white font-monts font-medium text-xl hover:text-brand-orange transition-colors">Sobre Nós</a></li>
+            <li><a href="contato.html" class="text-white font-monts font-medium text-xl hover:text-brand-orange transition-colors">Contato</a></li>
+        </ul>
+        <div class="mt-12">
+            <a href="contato.html" class="block w-full text-center bg-brand-orange text-white font-semibold px-6 py-3 rounded-md shadow-lg hover:bg-orange-600 transition-all duration-300">
+                Fale Conosco
+            </a>
+        </div>
+      </nav>
       <div class="relative z-10 grow flex flex-col items-center justify-center text-center px-4 pb-32">
         <span class="hero-subtitle text-white font-monts font-bold tracking-[0.3em] uppercase text-sm mb-4 opacity-0 translate-y-10 drop-shadow-md">Quem Somos</span>
         <h1 class="hero-title font-display text-5xl md:text-[80px] text-white font-bold drop-shadow-2xl mb-6 leading-tight opacity-0 translate-y-10">
@@ -251,36 +278,98 @@
               <p class="font-monts text-lg leading-relaxed text-gray-200 mb-10 font-light border-l-4 border-brand-orange pl-6">
                 Experiência em Orçamento, Planejamento, Controle e Execução de obras e conhecimento de mídias digitais, tráfego pago e marketing.
               </p>
-              <a href="contato.html" class="bg-white text-brand-blue font-monts font-bold py-4 px-12 rounded-full shadow-lg hover:bg-brand-orange hover:text-white transition-all duration-300 hover:scale-105 self-end md:self-start border border-transparent">
-                Falar com Vitor
-              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="cta-section relative py-24 px-4 sm:px-6 lg:px-8 bg-deep-blue overflow-hidden">
+      <div class="absolute inset-0 z-0 opacity-20">
+       
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center border-4 border-brand-orange/50 p-6 md:p-12 rounded-2xl bg-black/30 backdrop-blur-sm shadow-glow translate-y-20 opacity-0">
+          <span class="text-brand-orange font-monts font-bold tracking-[0.3em] uppercase text-sm block mb-4">PRONTO PARA CONSTRUIR?</span>
+          <h2 class="font-display text-4xl md:text-6xl text-white font-bold mb-6 leading-tight">
+              Vamos Tirar Seu Projeto do Papel
+          </h2>
+          <p class="text-lg text-gray-300 font-monts mb-10 max-w-2xl mx-auto">
+              Garanta **preço de fábrica** e a execução mais rápida do mercado com nossa expertise Turnkey.
+          </p>
+          <a href="contato.html" class="inline-flex bg-brand-orange text-white font-bold py-4 px-12 rounded-full shadow-2xl hover:bg-[#d9551a] hover:scale-105 transition-all duration-300 border-2 border-white/50">
+              Solicitar Orçamento Gratuito
+          </a>
+      </div>
+    </section>
+
     <footer class="font-monts">
-      <div class="bg-[#00417E] text-white py-12 md:py-16 border-t border-white/10">
+      <div class="bg-[#00417E] text-white py-12 md:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
             <div class="space-y-6">
-              <img src="./img/logo-branca.svg" alt="Fábrica de Galpão" class="h-16 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-              <p class="text-sm leading-relaxed text-gray-300">Soluções completas em estruturas e coberturas metálicas para o seu projeto.</p>
-              <div class="text-sm space-y-1 text-gray-300 pt-2">
+              <img src="./img/logo-branca.svg" alt="Fábrica de Galpão" class="h-16 w-auto" />
+              <p class="text-sm leading-relaxed text-gray-200">
+                Soluções completas em estruturas e coberturas metálicas para o seu projeto
+              </p>
+              <div class="text-sm space-y-1 text-gray-200 pt-2">
                 <p>Av. Principal, 1234 - Bairro</p>
                 <p>Belo Horizonte , MG</p>
-                <p class="font-bold pt-1 text-white">(31) 99559-4889</p>
-                <p class="hover:text-brand-orange transition-colors"><a href="mailto:comercial@fabricadegalpoes.com.br">comercial@fabricadegalpoes.com.br</a></p>
+                <p class="font-bold pt-1">+55(31) 9 9559-4889</p>
+                <p>comercial@fabricadegalpoes.com.br</p>
               </div>
             </div>
-            <div class="lg:border-l lg:border-white/20 lg:pl-10 flex flex-col justify-start"><h3 class="text-xl font-bold mb-6 text-brand-orange">Links Rápidos</h3><ul class="space-y-3 text-sm font-medium text-gray-300"><li><a href="#" class="hover:text-white hover:translate-x-1 transition-transform inline-block">Quem somos</a></li><li><a href="#" class="hover:text-white hover:translate-x-1 transition-transform inline-block">Produtos</a></li></ul></div>
-            <div class="lg:border-l lg:border-white/20 lg:pl-10 flex flex-col justify-start"><h3 class="text-xl font-bold mb-6 text-brand-orange">Produtos</h3><ul class="space-y-3 text-sm font-medium text-gray-300"><li><a href="#" class="hover:text-white hover:translate-x-1 transition-transform inline-block">Telhas</a></li><li><a href="#" class="hover:text-white hover:translate-x-1 transition-transform inline-block">Estruturas</a></li></ul></div>
-            <div class="lg:border-l lg:border-white/20 lg:pl-10 flex flex-col justify-start"><h3 class="text-xl font-bold mb-6 text-brand-orange">Contate-nos</h3><div class="flex gap-4"><a href="#" class="hover:scale-110 transition-transform"><img src="./img/wpp-icon.svg" class="w-10 h-10"></a><a href="#" class="hover:scale-110 transition-transform"><img src="./img/email.svg" class="w-10 h-10"></a></div></div>
+
+            <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
+              <h3 class="text-xl font-bold mb-6">Links Rápidos</h3>
+              <ul class="space-y-3 text-sm font-medium text-gray-200">
+                <li><a href="sobre.html" class="hover:text-white hover:underline transition-all">Quem somos</a></li>
+                <li><a href="produtos.html" class="hover:text-white hover:underline transition-all">Produtos</a></li>
+                <li><a href="contato.html" class="hover:text-white hover:underline transition-all">Contato</a></li>
+                <li><a href="index.html" class="hover:text-white hover:underline transition-all">Início</a></li>
+              </ul>
+            </div>
+
+            <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
+              <h3 class="text-xl font-bold mb-6">Produtos</h3>
+              <ul class="space-y-3 text-sm font-medium text-gray-200">
+                <li><a href="contato.html" class="hover:text-white hover:underline transition-all">Telhas Galvalume</a></li>
+                <li><a href="contato.html" class="hover:text-white hover:underline transition-all">Telhas Termoacústicas</a></li>
+                <li><a href="contato.html" class="hover:text-white hover:underline transition-all">Estruturas Metálicas</a></li>
+                <li><a href="contato.html" class="hover:text-white hover:underline transition-all">Venezianas Industriais</a></li>
+                <li><a href="contato.html" class="hover:text-white hover:underline transition-all">Pisos Industriais</a></li>
+              </ul>
+            </div>
+
+            <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
+              <h3 class="text-xl font-bold mb-6">Contate - nos</h3>
+              <div class="flex gap-4">
+                <a href="https://wa.me/5531995594889" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform duration-300">
+                  <img src="./img/wpp-icon.svg" alt="WhatsApp" class="w-10 h-10" />
+                </a>
+                <a href="mailto:comercial@fabricadegalpoes.com.br" class="hover:scale-110 transition-transform duration-300">
+                  <img src="./img/email.svg" alt="Email" class="w-10 h-10" />
+                </a>
+                <a href="tel:+5531995594889" class="hover:scale-110 transition-transform duration-300">
+                  <img src="./img/telefone.svg" alt="Telefone" class="w-10 h-10" />
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-      <div class="bg-[#002242] text-gray-400 py-6 text-center text-xs font-semibold tracking-wide border-t border-white/5">
+
+      <div class="bg-[#8C8C8C] text-white py-8 text-center px-4">
+        <div class="font-serif italic text-xl md:text-2xl leading-relaxed">
+          “O Senhor firmará a obra das nossas mãos.”
+        </div>
+        <div class="font-serif italic text-lg mt-2 opacity-90">
+          — Salmos 90:17
+        </div>
+      </div>
+
+      <div class="bg-[#002242] text-white py-4 text-center text-xs font-semibold tracking-wide">
         © 2025 Fábrica de Galpões — Todos os direitos reservados.
       </div>
     </footer>
@@ -291,53 +380,99 @@
     <script>
        gsap.registerPlugin(ScrollTrigger);
 
-       // 1. Parallax Suave (Hero)
-       gsap.to(".parallax-bg img", {
-         yPercent: 30,
-         ease: "none",
-         scrollTrigger: { trigger: "body", start: "top top", end: "bottom top", scrub: true }
-       });
+        /* LÓGICA DO MENU HAMBURGER */
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+        const header = document.querySelector('header');
 
-       // 2. Entradas (Mais lentas - Duration aumentada para 1.5s)
-       const tl = gsap.timeline();
-       tl.to(".hero-subtitle", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out", delay: 0.2 })
-         .to(".hero-title", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1.2")
-         .to(".hero-text", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1.2");
+        menuButton.addEventListener('click', () => {
+            // Toggle da classe de transformação para deslizar o menu
+            mobileMenu.classList.toggle('mobile-menu-closed');
+            mobileMenu.classList.toggle('mobile-menu-open');
+            
+            // Toggle dos ícones
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
 
-       const slowAnim = { opacity: 1, y: 0, x: 0, duration: 1.8, ease: "power2.out" }; // Animação base bem lenta
+            // Adiciona/Remove classe no body para desabilitar o scroll ao abrir o menu
+            document.body.classList.toggle('overflow-hidden');
+            
+            // Ajuste do header (opcional, mas bom para z-index)
+            header.classList.toggle('bg-transparent');
+            header.classList.toggle('bg-[#EAEAEA]'); 
+        });
 
-       // Seção História
-       gsap.to(".img-col-1", { ...slowAnim, scrollTrigger: { trigger: ".img-col-1", start: "top 80%", toggleActions: "play reverse play reverse" } });
-       gsap.to(".img-col-2", { ...slowAnim, delay: 0.3, scrollTrigger: { trigger: ".img-col-2", start: "top 80%", toggleActions: "play reverse play reverse" } });
-       gsap.to(".text-col", { ...slowAnim, duration: 2, scrollTrigger: { trigger: ".text-col", start: "top 80%", toggleActions: "play reverse play reverse" } });
+        // Fechar menu ao clicar em um link (opcional, mas bom)
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('mobile-menu-open')) {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    mobileMenu.classList.add('mobile-menu-closed');
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                    header.classList.add('bg-transparent');
+                }
+            });
+        });
 
-       // Checks (Cascata lenta)
-       gsap.to(".check-item", {
-         scrollTrigger: { trigger: ".text-col", start: "top 70%", toggleActions: "play reverse play reverse" },
-         opacity: 1, x: 0, duration: 1, stagger: 0.25, ease: "power2.out"
-       });
 
-       // Nova Seção Quote
-       gsap.to(".quote-section", {
-           scrollTrigger: { trigger: ".quote-section", start: "top 75%", toggleActions: "play reverse play reverse" },
-           opacity: 1, duration: 2, ease: "power2.out"
-       });
+        // 1. Parallax Suave (Hero)
+        gsap.to(".parallax-bg img", {
+          yPercent: 30,
+          ease: "none",
+          scrollTrigger: { trigger: "body", start: "top top", end: "bottom top", scrub: true }
+        });
 
-       // Pilares (Stagger lento)
-       gsap.to(".pillar-card", {
-         scrollTrigger: { trigger: ".pillar-card", start: "top 80%", toggleActions: "play reverse play reverse" },
-         opacity: 1, y: 0, duration: 1.5, stagger: 0.3, ease: "power2.out"
-       });
-       gsap.to(".sticky-image", {
-         scrollTrigger: { trigger: ".sticky-image", start: "top 80%", toggleActions: "play reverse play reverse" },
-         opacity: 1, x: 0, duration: 2, ease: "power2.out"
-       });
+        // 2. Entradas (Mais lentas - Duration aumentada para 1.5s)
+        const tl = gsap.timeline();
+        tl.to(".hero-subtitle", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out", delay: 0.2 })
+          .to(".hero-title", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1.2")
+          .to(".hero-text", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1.2");
 
-       // Time
-       gsap.to(".team-card", {
-         scrollTrigger: { trigger: ".team-card", start: "top 85%", toggleActions: "play reverse play reverse" },
-         opacity: 1, y: 0, duration: 1.8, stagger: 0.4, ease: "power2.out"
-       });
+        const slowAnim = { opacity: 1, y: 0, x: 0, duration: 1.8, ease: "power2.out" }; // Animação base bem lenta
+
+        // Seção História
+        gsap.to(".img-col-1", { ...slowAnim, scrollTrigger: { trigger: ".img-col-1", start: "top 80%", toggleActions: "play reverse play reverse" } });
+        gsap.to(".img-col-2", { ...slowAnim, delay: 0.3, scrollTrigger: { trigger: ".img-col-2", start: "top 80%", toggleActions: "play reverse play reverse" } });
+        gsap.to(".text-col", { ...slowAnim, duration: 2, scrollTrigger: { trigger: ".text-col", start: "top 80%", toggleActions: "play reverse play reverse" } });
+
+        // Checks (Cascata lenta)
+        gsap.to(".check-item", {
+          scrollTrigger: { trigger: ".text-col", start: "top 70%", toggleActions: "play reverse play reverse" },
+          opacity: 1, x: 0, duration: 1, stagger: 0.25, ease: "power2.out"
+        });
+
+        // Nova Seção Quote
+        gsap.to(".quote-section", {
+            scrollTrigger: { trigger: ".quote-section", start: "top 75%", toggleActions: "play reverse play reverse" },
+            opacity: 1, duration: 2, ease: "power2.out"
+        });
+
+        // Pilares (Stagger lento)
+        gsap.to(".pillar-card", {
+          scrollTrigger: { trigger: ".pillar-card", start: "top 80%", toggleActions: "play reverse play reverse" },
+          opacity: 1, y: 0, duration: 1.5, stagger: 0.3, ease: "power2.out"
+        });
+        gsap.to(".sticky-image", {
+          scrollTrigger: { trigger: ".sticky-image", start: "top 80%", toggleActions: "play reverse play reverse" },
+          opacity: 1, x: 0, duration: 2, ease: "power2.out"
+        });
+
+        // Time
+        gsap.to(".team-card", {
+          scrollTrigger: { trigger: ".team-card", start: "top 85%", toggleActions: "play reverse play reverse" },
+          opacity: 1, y: 0, duration: 1.8, stagger: 0.4, ease: "power2.out"
+        });
+        
+        // Novo CTA (Chamada para Ação)
+        gsap.to(".cta-section > div", {
+          scrollTrigger: { trigger: ".cta-section", start: "top 85%", toggleActions: "play none none none" },
+          opacity: 1, y: 0, duration: 1.5, ease: "power2.out"
+        });
     </script>
   </body>
 </html>

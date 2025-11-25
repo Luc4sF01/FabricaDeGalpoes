@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="./img/favicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -32,7 +33,7 @@
     </script>
 
     <style>
-      /* --- Estilos Customizados para Efeito Visual Avançado --- */
+      /* --- Estilos Customizados --- */
       
       /* Underline Effect na Navegação */
       .nav-link-effect {
@@ -61,36 +62,41 @@
       /* Sombra Especular e Efeito 3D sutil no formulário */
       .form-block {
           transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-          /* Sombra mais sofisticada inicialmente */
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
       }
       .form-block:hover {
-          /* Elevação sutil e sombra azulada no hover */
           transform: translateY(-5px);
           box-shadow: 0 15px 40px rgba(0, 65, 126, 0.25), 0 6px 20px rgba(0, 65, 126, 0.1);
       }
       
       /* Efeito Pulse no botão de envio */
-      .hover\\:shadow-pulse:hover {
-          box-shadow: 0 0 0 0.5rem rgba(239, 98, 32, 0.2); /* Laranja com opacidade */
+      .hover\:shadow-pulse:hover {
+          box-shadow: 0 0 0 0.5rem rgba(239, 98, 32, 0.2); 
       }
 
       /* Estilo dos Canais Diretos no hover */
       .contact-link-item:hover .icon-orange {
           transform: scale(1.1);
-          color: #EF6220; /* Garante que o ícone fique laranja forte */
+          color: #EF6220; 
       }
       .contact-link-item:hover p, .contact-link-item:hover a {
-          color: #002B5B; /* Garante o texto escuro no hover */
+          color: #002B5B; 
       }
-
+      
+      /* Estilos para o menu mobile (Hamburger) */
+      .mobile-menu-open {
+          transform: translateX(0);
+      }
+      .mobile-menu-closed {
+          transform: translateX(100%);
+      }
     </style>
   </head>
 
-  <body class="bg-fdg-light-gray">
+  <body class="bg-fdg-light-gray overflow-x-hidden font-monts">
     
     <div class="relative w-full min-h-[400px] flex flex-col bg-fdg-dark-blue pb-10"> 
-        
+      
       <div class="absolute inset-0 z-0">
         <div class="w-full h-full bg-fdg-dark-blue"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-fdg-primary-blue/90 to-fdg-dark-blue/80 opacity-90"></div>
@@ -113,17 +119,30 @@
               <li class="font-bold"><a href="contato.html" class="text-fdg-accent-orange font-monts font-medium text-lg transition-colors nav-link-effect">Contato</a></li>
             </ul>
           </nav>
-
-          <button class="hidden md:block bg-fdg-accent-orange text-white font-semibold px-6 py-2.5 rounded-md shadow-lg hover:bg-orange-600 hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
-            Fale Conosco
+          
+          <button id="mobile-menu-button" class="md:hidden text-white p-2 z-50">
+            <svg id="icon-open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
 
-          <button class="md:hidden text-white p-2">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-          </button>
+          <div class="hidden md:block w-36"></div> 
         </div>
       </header>
-
+      
+      <nav id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-fdg-dark-blue text-white p-6 md:hidden transition-transform duration-300 mobile-menu-closed z-40 shadow-xl">
+        <h3 class="text-2xl font-display font-bold mb-8 mt-16 text-fdg-accent-orange">Navegação</h3>
+        <ul class="space-y-6">
+            <li><a href="index.html" class="text-white font-monts font-medium text-xl hover:text-fdg-accent-orange transition-colors">Início</a></li>
+            <li><a href="produtos.html" class="text-white font-monts font-medium text-xl hover:text-fdg-accent-orange transition-colors">Produtos</a></li>
+            <li><a href="sobre.html" class="text-white font-monts font-medium text-xl hover:text-fdg-accent-orange transition-colors">Sobre Nós</a></li>
+            <li><a href="contato.html" class="text-white font-monts font-medium text-xl hover:text-fdg-accent-orange transition-colors">Contato</a></li>
+        </ul>
+        <div class="mt-12">
+            <a href="contato.html" class="block w-full text-center bg-fdg-accent-orange text-white font-semibold px-6 py-3 rounded-md shadow-lg hover:bg-orange-600 transition-all duration-300">
+                Fale Conosco
+            </a>
+        </div>
+      </nav>
       <div class="relative z-10 flex-grow flex items-center px-4 sm:px-8">
         <div class="max-w-7xl mx-auto w-full pt-20 pb-10 text-center">
           <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-4 animate-in">
@@ -203,7 +222,7 @@
                 </div>
 
                 <div class="lg:col-span-2 order-1 lg:order-2">
-                    <form action="#" method="POST" class="bg-white p-6 md:p-10 rounded-2xl border-l-8 border-fdg-accent-orange form-block">
+                    <form id="contact-form" action="#" method="POST" class="bg-white p-6 md:p-10 rounded-2xl border-l-8 border-fdg-accent-orange form-block">
                         <h2 class="text-3xl md:text-4xl font-display font-bold text-fdg-dark-blue mb-4">
                             Solicite seu Orçamento Detalhado
                         </h2>
@@ -215,29 +234,29 @@
                             
                             <div class="col-span-1">
                                 <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Seu Nome Completo</label>
-                                <input type="text" name="nome" id="nome" placeholder="Ex: João da Silva" required class="form-input">
+                                <input type="text" name="Nome" id="nome" placeholder="Ex: João da Silva" required class="form-input">
                             </div>
                             <div class="col-span-1">
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Profissional</label>
-                                <input type="email" name="email" id="email" placeholder="contato@empresa.com.br" required class="form-input">
+                                <input type="email" name="Email" id="email" placeholder="contato@empresa.com.br" required class="form-input">
                             </div>
                             <div class="col-span-1">
                                 <label for="telefone" class="block text-sm font-medium text-gray-700 mb-2">Telefone/WhatsApp</label>
-                                <input type="tel" name="telefone" id="telefone" placeholder="(31) 9 9999-9999" required class="form-input">
+                                <input type="tel" name="Telefone" id="telefone" placeholder="(31) 9 9999-9999" required class="form-input">
                             </div>
                             <div class="col-span-1">
                                 <label for="servico" class="block text-sm font-medium text-gray-700 mb-2">Qual tipo de serviço você busca?</label>
-                                <select id="servico" name="servico" required class="form-input appearance-none">
+                                <select id="servico" name="Servico_Desejado" required class="form-input appearance-none">
                                     <option value="" disabled selected>Selecione uma opção</option>
-                                    <option value="turnkey">Projeto Turnkey (Chave na Mão)</option>
-                                    <option value="estrutura">Estruturas Metálicas</option>
-                                    <option value="cobertura">Cobertura e Fechamentos</option>
-                                    <option value="outros">Outros</option>
+                                    <option value="Projeto Turnkey">Projeto Turnkey (Chave na Mão)</option>
+                                    <option value="Estruturas Metálicas">Estruturas Metálicas</option>
+                                    <option value="Cobertura e Fechamentos">Cobertura e Fechamentos</option>
+                                    <option value="Outros">Outros</option>
                                 </select>
                             </div>
                             <div class="md:col-span-2">
                                 <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">Detalhes do seu projeto (opcional)</label>
-                                <textarea name="mensagem" id="mensagem" rows="4" placeholder="Informe dimensões, localização da obra ou qualquer especificação importante." class="form-input"></textarea>
+                                <textarea name="Detalhes" id="mensagem" rows="4" placeholder="Informe dimensões, localização da obra ou qualquer especificação importante." class="form-input"></textarea>
                             </div>
 
                             <div class="md:col-span-2 flex items-center">
@@ -292,20 +311,20 @@
             <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
               <h3 class="text-xl font-bold mb-6">Produtos</h3>
               <ul class="space-y-3 text-sm font-medium text-gray-200">
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Telhas Galvalume</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Telhas Termoacústicas</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Estruturas Metálicas</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Venezianas Industriais</a></li>
-                <li><a href="#" class="hover:text-white hover:underline transition-all">Pisos Industriais</a></li>
+                <li><a href="produtos.html" class="hover:text-white hover:underline transition-all">Telhas Galvalume</a></li>
+                <li><a href="produtos.html" class="hover:text-white hover:underline transition-all">Telhas Termoacústicas</a></li>
+                <li><a href="produtos.html" class="hover:text-white hover:underline transition-all">Estruturas Metálicas</a></li>
+                <li><a href="produtos.html" class="hover:text-white hover:underline transition-all">Venezianas Industriais</a></li>
+                <li><a href="produtos.html" class="hover:text-white hover:underline transition-all">Pisos Industriais</a></li>
               </ul>
             </div>
 
             <div class="lg:border-l lg:border-white/30 lg:pl-10 flex flex-col justify-start">
               <h3 class="text-xl font-bold mb-6">Contate - nos</h3>
               <div class="flex gap-4">
-                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="./img/wpp-icon.svg" alt="WhatsApp" class="w-10 h-10" /></a>
-                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="./img/email.svg" alt="Email" class="w-10 h-10" /></a>
-                <a href="#" class="hover:scale-110 transition-transform duration-300"><img src="./img/telefone.svg" alt="Telefone" class="w-10 h-10" /></a>
+                <a href="https://wa.me/5531995594889" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform duration-300"><img src="./img/wpp-icon.svg" alt="WhatsApp" class="w-10 h-10" /></a>
+                <a href="mailto:comercial@fabricadegalpoes.com.br" class="hover:scale-110 transition-transform duration-300"><img src="./img/email.svg" alt="Email" class="w-10 h-10" /></a>
+                <a href="tel:+5531995594889" class="hover:scale-110 transition-transform duration-300"><img src="./img/telefone.svg" alt="Telefone" class="w-10 h-10" /></a>
               </div>
             </div>
 
@@ -330,6 +349,79 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <script>
+      const targetPhoneNumber = '5531995594889'; // Seu número WhatsApp
+
+      /* LÓGICA DO MENU HAMBURGER (Slide-out menu) */
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      // Adiciona IDs aos ícones do SVG do botão Hamburger para torná-lo funcional
+      // A estrutura já está no HTML, só precisamos do JS
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+
+      function toggleMenu() {
+          const isMenuOpen = mobileMenu.classList.contains('mobile-menu-open');
+          
+          mobileMenu.classList.toggle('mobile-menu-closed', isMenuOpen);
+          mobileMenu.classList.toggle('mobile-menu-open', !isMenuOpen);
+          
+          iconOpen.classList.toggle('hidden', !iconOpen.classList.contains('hidden'));
+          iconClose.classList.toggle('hidden', !iconClose.classList.contains('hidden'));
+
+          document.body.classList.toggle('overflow-hidden');
+      }
+
+      menuButton.addEventListener('click', toggleMenu);
+      
+      // Fechar menu ao clicar em um link (melhora a UX)
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              // Verifica se o menu está aberto antes de tentar fechar
+              if (mobileMenu.classList.contains('mobile-menu-open')) {
+                  toggleMenu(); 
+              }
+          });
+      });
+      
+      /* LÓGICA DE ENVIO DO FORMULÁRIO PARA WHATSAPP */
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Impede o envio padrão
+
+          // 1. Coleta os dados
+          const nome = document.getElementById('nome').value || 'Não Informado';
+          const email = document.getElementById('email').value || 'Não Informado';
+          const telefone = document.getElementById('telefone').value || 'Não Informado';
+          const servicoSelect = document.getElementById('servico');
+          const servico = servicoSelect.options[servicoSelect.selectedIndex].text || 'Não Selecionado';
+          const detalhes = document.getElementById('mensagem').value || 'Nenhum detalhe adicional fornecido.';
+
+          // 2. Constrói a mensagem com formatação correta para WhatsApp
+          let message = 
+              `*📢 NOVO ORÇAMENTO VIA SITE (WHATSAPP)*` + `%0A` +
+              `-----------------------------------------------` + `%0A` +
+              `*Nome:* ${nome}` + `%0A` +
+              `*Telefone:* ${telefone}` + `%0A` +
+              `*Email:* ${email}` + `%0A` +
+              `*Serviço Desejado:* ${servico}` + `%0A` +
+              `*Detalhes do Projeto:*` + `%0A` +
+              `${detalhes}` + `%0A` +
+              `-----------------------------------------------` + `%0A` +
+              `*Por favor, aguarde nossa resposta, retornaremos o mais breve possível.*`;
+
+
+          // 3. Codifica a mensagem para URL e redireciona
+          const encodedMessage = encodeURIComponent(message.trim());
+          const whatsappLink = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
+          
+          // Abre o WhatsApp
+          window.open(whatsappLink, '_blank');
+      });
+
+      // --- GSAP Animations ---
+
       // 1. Animação de entrada do conteúdo principal (GSAP)
       gsap.from(".contact-section > div > div > div", { 
           opacity: 0, 
