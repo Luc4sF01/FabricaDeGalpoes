@@ -10,7 +10,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="./img/favicon.png">
 
-
     <script>
       tailwind.config = {
         theme: {
@@ -23,7 +22,7 @@
               'brand-blue': '#003B73',
               'brand-orange': '#EF6220',
               'brand-dark': '#1E2638',
-              'deep-blue': '#002242', // Usado no novo CTA
+              'deep-blue': '#002242',
             },
             boxShadow: {
               'soft': '0 20px 40px -15px rgba(0, 0, 0, 0.1)',
@@ -40,47 +39,45 @@
       .nav-link-effect { position: relative; display: inline-block; }
       .nav-link-effect::after {
         content: ''; position: absolute; width: 0; height: 2px;
-        bottom: -4px; left: 0; background-color: #003B73; 
+        bottom: -4px; left: 0; background-color: #EF6220; 
         transition: width 0.3s ease-out;
       }
       .nav-link-effect:hover::after { width: 100%; }
-      /* Estilos para o menu mobile (Hamburger) */
-      .mobile-menu-open {
-          transform: translateX(0);
-      }
-      .mobile-menu-closed {
-          transform: translateX(100%);
-      }
+      
+      /* Menu Mobile */
+      .mobile-menu-open { transform: translateX(0); }
+      .mobile-menu-closed { transform: translateX(100%); }
     </style>
   </head>
 
   <body class="bg-[#F5F7FA] overflow-x-hidden font-monts"> 
     
-    <div class="relative w-full h-[80vh] min-h-[600px] flex flex-col overflow-hidden">
+    <div class="relative w-full h-[70vh] min-h-[500px] flex flex-col overflow-hidden bg-brand-blue">
       <div class="absolute inset-0 z-0 parallax-bg will-change-transform">
-        <img src="./img/fundo-header-sobre.svg" class="w-full h-[130%] object-cover -mt-10" alt="Fundo Galpão">
-        <div class="absolute inset-0 bg-black/30"></div> 
+        <img src="./img/fundo-sobre.svg" class="w-full h-[130%] object-cover -mt-10 opacity-80" alt="Fundo Galpão">
+        
       </div>
 
       <header class="relative z-20 w-full pt-8 px-4 sm:px-12 transition-all duration-500">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
           <a href="index.html" class="shrink-0 transition-transform hover:scale-105 duration-300">
-            <img class="w-36 md:w-[200px]" src="./img/Logo galpao.svg" alt="Fábrica de Galpão" />
+            <img class="w-36 md:w-[200px] brightness-0 invert" src="./img/Logo galpao.svg" alt="Fábrica de Galpão" />
           </a>
+          
           <nav class="hidden md:block">
-            <ul class="flex items-center gap-8 bg-[#EAEAEA]/90 backdrop-blur-md border border-white/40 px-10 py-3 rounded-full shadow-lg text-[#1A1A1A]">
-             <li><a href="index.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Início<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
-             <li><a href="produtos.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Produtos<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
-             <li><a href="sobre.html" class="font-monts font-bold text-sm text-[#EF6220] border-b-2 border-[#EF6220] pb-0.5">Sobre Nós</a></li>
-             <li><a href="contato.html" class="font-monts font-semibold text-sm hover:text-[#EF6220] transition-colors relative group">Contato<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#EF6220] transition-all group-hover:w-full"></span></a></li>
+            <ul class="flex items-center gap-8 text-white">
+               <li><a href="index.html" class="font-monts font-medium text-sm hover:text-brand-orange transition-colors nav-link-effect">Início</a></li>
+               <li><a href="produtos.html" class="font-monts font-medium text-sm hover:text-brand-orange transition-colors nav-link-effect">Produtos</a></li>
+               <li><a href="sobre.html" class="font-monts font-bold text-sm text-brand-orange border-b-2 border-brand-orange pb-0.5">Sobre Nós</a></li>
+               <li><a href="contato.html" class="font-monts font-medium text-sm hover:text-brand-orange transition-colors nav-link-effect">Contato</a></li>
             </ul>
           </nav>
 
-          <a href="contato.html" class="hidden md:block bg-[#EAEAEA]/90 backdrop-blur-md border border-[#003B73] text-[#003B73] font-bold text-xs px-6 py-3 rounded shadow-lg hover:bg-[#003B73] hover:text-white transition-all duration-300 uppercase tracking-wide">
-            Entre em contato conosco
+          <a href="contato.html" class="hidden md:block bg-brand-orange text-white font-bold text-xs px-6 py-3 rounded shadow-lg hover:bg-orange-700 transition-all duration-300 uppercase tracking-wide">
+            Fale Conosco
           </a>
 
-          <button id="mobile-menu-button" class="md:hidden text-white p-2 bg-white/10 backdrop-blur-md rounded border border-white/20 z-50">
+          <button id="mobile-menu-button" class="md:hidden text-white p-2 z-50">
             <svg id="icon-open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
@@ -101,35 +98,32 @@
             </a>
         </div>
       </nav>
-      <div class="relative z-10 grow flex flex-col items-center justify-center text-center px-4 pb-32">
-        <span class="hero-subtitle text-white font-monts font-bold tracking-[0.3em] uppercase text-sm mb-4 opacity-0 translate-y-10 drop-shadow-md">Quem Somos</span>
-        <h1 class="hero-title font-display text-5xl md:text-[80px] text-white font-bold drop-shadow-2xl mb-6 leading-tight opacity-0 translate-y-10">
-          Sobre Nós
+
+      <div class="relative z-10 grow flex flex-col items-center justify-center text-center px-4 pb-20">
+        <h1 class="hero-title font-display text-5xl md:text-[70px] text-white font-bold drop-shadow-lg mb-6 leading-tight opacity-0 translate-y-10">
+          Quem Somos
         </h1>
-        <p class="hero-text font-monts text-lg md:text-[24px] text-white font-medium drop-shadow-md max-w-2xl opacity-0 translate-y-10">
-          Excelência e confiança em cada projeto
-        </p>
-        <div class="absolute bottom-10 animate-bounce opacity-70">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </div>
+        
       </div>
     </div>
 
-    <section class="relative z-30 -mt-32 px-4 sm:px-6 lg:px-8 pb-20">
+    <section class="relative z-30 -mt-20 px-4 sm:px-6 lg:px-8 pb-20">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
           <div class="lg:col-span-3 hidden lg:block img-col-1 opacity-0 translate-y-20">
-            <img src="./img/imagem-sobre-1.svg" alt="Trabalho Industrial" class="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white hover:scale-[1.02] transition-transform duration-1000"/>
+            <img src="./img/imagem-sobre-1.svg" alt="Estrutura Metálica" class="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white hover:scale-[1.02] transition-transform duration-1000"/>
           </div>
           <div class="lg:col-span-3 flex flex-col gap-6 h-full img-col-2 opacity-0 translate-y-20">
             <div class="h-[250px] lg:h-[60%]">
-              <img src="./img/imagem-sobre-2.svg" alt="Planejamento" class="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white hover:scale-[1.02] transition-transform duration-1000"/>
+              <img src="./img/imagem-sobre-2.svg" alt="Engenharia" class="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white hover:scale-[1.02] transition-transform duration-1000"/>
             </div>
             <div class="grow bg-brand-blue rounded-2xl shadow-2xl p-8 flex items-center justify-center text-center relative overflow-hidden group border-4 border-white/10">
               <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
               <p class="text-white font-display font-bold text-xl lg:text-2xl leading-tight relative z-10">Parcerias com as maiores indústrias do Brasil</p>
             </div>
           </div>
+
           <div class="lg:col-span-6 bg-white rounded-2xl p-8 lg:p-12 shadow-soft border border-gray-100 text-col opacity-0 translate-x-20 relative">
             <div class="absolute top-0 right-0 w-24 h-24 bg-brand-orange/5 rounded-bl-[100px]"></div>
             <span class="text-brand-orange font-monts font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Nossa História</span>
@@ -157,12 +151,6 @@
                 </div>
                 <span class="group-hover:translate-x-1 transition-transform duration-300">Logística eficiente para todo o Brasil</span>
               </li>
-              <li class="check-item flex items-start gap-3 group opacity-0 translate-x-[-20px]">
-                <div class="w-6 h-6 bg-brand-orange/10 rounded-full flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-orange transition-colors duration-300">
-                   <svg class="w-3 h-3 text-brand-orange group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                </div>
-                <span class="group-hover:translate-x-1 transition-transform duration-300">Comprometimento com prazos e resultados</span>
-              </li>
             </ul>
           </div>
         </div>
@@ -172,7 +160,7 @@
     <section class="bg-white py-20 quote-section opacity-0">
         <div class="max-w-4xl mx-auto text-center px-6">
             <svg class="w-12 h-12 text-brand-orange mx-auto mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.0547 15.1926 14.6592 16.969 13.6328C18.2546 12.8867 19.3621 12.2373 19.9956 11.25C20.6719 10.2188 20.798 9.17344 20.798 8.16563C20.798 5.20312 18.479 3 15.5479 3C12.5432 3 10.2479 5.22422 10.2479 8.20078C10.2479 9.82031 10.7826 11.318 11.7773 12.3961L12.0156 12.6539L11.6906 12.7828C10.0826 13.4203 8.36563 14.5078 6.97266 16.3969C6.375 17.2078 6.75234 18.3328 7.72969 18.3328H8.66953C9.03047 18.3328 9.37734 18.1641 9.60234 17.8758C10.5234 16.6875 11.768 15.9141 12.9094 15.675L13.2352 15.607V21H14.017ZM5.0166 21L5.0166 18C5.0166 16.0547 6.19219 14.6592 7.96855 13.6328C9.2541 12.8867 10.3617 12.2373 10.9951 11.25C11.6715 10.2188 11.7977 9.17344 11.7977 8.16563C11.7977 5.20312 9.47871 3 6.54766 3C3.54297 3 1.24766 5.22422 1.24766 8.20078C1.24766 9.82031 1.78234 11.318 2.77715 12.3961L3.01543 12.6539L2.69043 12.7828C1.08242 13.4203 -0.63457 14.5078 -2.02754 16.3969C-2.6252 17.2078 -2.24785 18.3328 -1.27051 18.3328H-0.330664C0.0302734 18.3328 0.377148 18.1641 0.602148 17.8758C1.52324 16.6875 2.76777 15.9141 3.90918 15.675L4.23496 15.607V21H5.0166Z"></path></svg>
-            <h3 class="font-display text-2xl md:text-4xl font-bold text-brand-blue italic leading-snug">
+            <h3 class="font-display text-2xl md:text-3xl font-bold text-brand-blue italic leading-snug">
                 "Nossa missão não é apenas levantar estruturas, mas construir relações sólidas que impulsionam o crescimento industrial do Brasil."
             </h3>
             <div class="mt-8">
@@ -182,119 +170,126 @@
         </div>
     </section>
 
-    <section class="bg-[#F5F7FA] py-24 px-4 sm:px-6 lg:px-8">
+   <section class="bg-[#F5F7FA] py-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
+        
         <div class="text-center mb-20">
-          <span class="text-brand-orange font-monts font-bold tracking-[0.3em] uppercase text-xs">Nossa Base</span>
-          <h2 class="font-display text-3xl md:text-5xl text-brand-blue font-bold mt-2">Pilares Fundamentais</h2>
+          <span class="text-brand-orange font-monts font-bold tracking-[0.3em] uppercase text-xs">NOSSA BASE</span>
+          <h2 class="font-display text-4xl md:text-5xl text-brand-blue font-bold mt-3">Pilares Fundamentais</h2>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-          <div class="flex flex-col gap-10">
+          <div class="flex flex-col gap-12">
+            
             <div class="pillar-card flex gap-6 group opacity-0 translate-y-10">
                 <div class="shrink-0">
-                    <div class="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <div class="w-20 h-20 rounded-2xl bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center justify-center text-brand-blue group-hover:scale-105 transition-transform duration-500">
+                        <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-display text-2xl font-bold text-brand-blue mb-3 group-hover:text-brand-orange transition-colors">Nossa Visão</h3>
-                    <p class="font-monts text-gray-600 text-base leading-relaxed">Ser referência nacional em soluções completas para construção e reforma de galpões industriais, entregando projetos com qualidade e inovação.</p>
+                    <h3 class="font-display text-2xl font-bold text-brand-blue mb-3">Nossa Visão</h3>
+                    <p class="font-monts text-gray-600 text-sm md:text-base leading-relaxed">
+                        Ser referência nacional em soluções completas para construção e reforma de galpões , entregando projetos com qualidade e inovação.
+                    </p>
                 </div>
             </div>
+            
             <div class="pillar-card flex gap-6 group opacity-0 translate-y-10">
                 <div class="shrink-0">
-                    <div class="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <div class="w-20 h-20 rounded-2xl bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center justify-center text-brand-blue group-hover:scale-105 transition-transform duration-500">
+                        <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-display text-2xl font-bold text-brand-blue mb-3 group-hover:text-brand-orange transition-colors">Nossa Missão</h3>
-                    <p class="font-monts text-gray-600 text-base leading-relaxed">Fornecer produtos de alto desempenho que unam tecnologia, segurança e economia, ajudando empresas a realizarem seus projetos.</p>
+                    <h3 class="font-display text-2xl font-bold text-brand-blue mb-3">Nossa Missão</h3>
+                    <p class="font-monts text-gray-600 text-sm md:text-base leading-relaxed">
+                        Fornecer produtos de alto desempenho que unam tecnologia, segurança e economia, contribuindo com nossos clientes na realização de seus projetos 
+                    </p>
                 </div>
             </div>
+            
             <div class="pillar-card flex gap-6 group opacity-0 translate-y-10">
                 <div class="shrink-0">
-                    <div class="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="w-20 h-20 rounded-2xl bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center justify-center text-brand-blue group-hover:scale-105 transition-transform duration-500">
+                        <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-display text-2xl font-bold text-brand-blue mb-3 group-hover:text-brand-orange transition-colors">Nossos Valores</h3>
-                    <p class="font-monts text-gray-600 text-base leading-relaxed">Agimos com ética, transparência e compromisso. Valorizamos o relacionamento humano e a busca contínua por evolução.</p>
+                    <h3 class="font-display text-2xl font-bold text-brand-blue mb-3">Nossos Valores</h3>
+                    <p class="font-monts text-gray-600 text-sm md:text-base leading-relaxed">
+                        Trabalhar com ética, transparência e compromisso , sempre valorizando o relacionamento humano e a busca pela satisfação dos todos os nossos clientes.
+                    </p>
                 </div>
+            </div>
+
+          </div>
+
+          <div class="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl sticky-image opacity-0 translate-x-20">
+            <img src="./img/imagem-sobre-3.svg" alt="Futuro com Solidez" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] hover:scale-110"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-brand-blue/20 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 p-10 md:p-12">
+                <div class="w-12 h-1 bg-brand-orange mb-6"></div>
+                <p class="text-white font-display font-bold text-3xl md:text-4xl leading-tight">
+                    "Construindo o futuro com solidez e confiança."
+                </p>
             </div>
           </div>
 
-          <div class="relative h-full min-h-[500px] rounded-2xl overflow-hidden shadow-2xl sticky-image opacity-0 translate-x-20">
-            <img src="./img/imagem-sobre-3.svg" alt="Futuro com Solidez" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] hover:scale-110"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-10">
-                <p class="text-white font-display font-bold text-2xl leading-snug">"Construindo o futuro com solidez e confiança."</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <section class="relative bg-brand-blue py-24 px-4 sm:px-6 lg:px-8 rounded-t-[60px] -mt-10 z-40 overflow-hidden">
-      <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-10">
-        <img src="./img/fundo-sobre.svg" alt="Marca d'água" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-5">
+        <img src="./img/Logo galpao.svg" alt="Marca d'água" class="w-[80%] h-auto object-contain brightness-0 invert"/>
       </div>
-      <div class="relative z-10 max-w-6xl mx-auto">
-        <h2 class="text-center text-white font-display text-4xl md:text-5xl font-bold mb-24 drop-shadow-md">Conheça Nosso Time</h2>
-        <div class="space-y-24">
-          <div class="flex flex-col md:flex-row gap-12 items-center team-card opacity-0 translate-y-20">
-            <div class="w-full md:w-1/3 relative group perspective">
-              <div class="absolute inset-0 bg-brand-orange rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
-              <img src="./img/Leonardo.svg" alt="Leonardo Mendes" class="relative w-full h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/10 transition-transform duration-500 group-hover:-translate-y-2"/>
+      
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <h2 class="text-center text-white font-display text-4xl md:text-5xl font-bold mb-20 drop-shadow-md">
+            Liderança
+        </h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          
+          <div class="team-card group opacity-0 translate-y-20 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-500">
+            <div class="w-full relative mb-8 overflow-hidden rounded-xl">
+                <div class="absolute inset-0 bg-brand-orange/0 group-hover:bg-brand-orange/10 transition-colors duration-500 z-10"></div>
+                <img src="./img/Leonardo.svg" alt="Leonardo Mendes" class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale-0 lg:grayscale lg:group-hover:grayscale-0"/>
             </div>
-            <div class="w-full md:w-2/3 text-white">
-              <h3 class="font-display text-4xl font-bold mb-4 text-brand-orange">Leonardo Mendes</h3>
-              <p class="font-monts text-lg leading-relaxed text-gray-200 font-light border-l-4 border-brand-orange pl-6">
-                Vasta experiência em gerenciamento e administração de obras de galpões, que nascem das necessidades dos empresários, empreendedores e todos os que querem contratar uma construtora com grande experiência em engenharia civil.
-              </p>
-            </div>
+            <h3 class="font-display text-3xl font-bold mb-2 text-white group-hover:text-brand-orange transition-colors">Leonardo Mendes</h3>
+           
+            <p class="font-monts text-base leading-relaxed text-gray-300 font-light">
+                Vasta experiência conquistada ao longo de 32 anos de atuação na execução de obras de galpões, atendendo de forma consistente às demandas de empreendedores e investidores do setor.
+            </p>
           </div>
-          <div class="flex flex-col md:flex-row-reverse gap-12 items-center team-card opacity-0 translate-y-20">
-            <div class="w-full md:w-1/3 relative group">
-              <div class="absolute inset-0 bg-brand-orange rounded-2xl -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
-              <img src="./img/Flávio.svg" alt="Flávio Santos" class="relative w-full h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/10 transition-transform duration-500 group-hover:-translate-y-2"/>
+
+          <div class="team-card group opacity-0 translate-y-20 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-500">
+            <div class="w-full relative mb-8 overflow-hidden rounded-xl">
+                <div class="absolute inset-0 bg-brand-orange/0 group-hover:bg-brand-orange/10 transition-colors duration-500 z-10"></div>
+                <img src="./img/Flávio.svg" alt="Flávio Santos" class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale-0 lg:grayscale lg:group-hover:grayscale-0"/>
             </div>
-            <div class="w-full md:w-2/3 text-white md:text-right">
-              <h3 class="font-display text-4xl font-bold mb-4 text-brand-orange">Flávio Santos</h3>
-              <p class="font-monts text-lg leading-relaxed text-gray-200 font-light border-r-4 border-brand-orange pr-6">
-                Especialista em soluções técnicas e estruturais. Sua visão garante que cada projeto saia do papel com precisão milimétrica e segurança total.
-              </p>
-            </div>
+            <h3 class="font-display text-3xl font-bold mb-2 text-white group-hover:text-brand-orange transition-colors">Flávio Santos</h3>
+           
+            <p class="font-monts text-base leading-relaxed text-gray-300 font-light">
+                Responsável por conduzir, estruturar e fortalecer o relacionamento entre a empresa e seus parceiros de negócios. Com abordagem estratégica, realiza a prospecção de novas oportunidades, acompanha demandas do mercado e assegura que cada cliente receba atendimento alinhado às suas necessidades específicas.
+            </p>
           </div>
-          <div class="flex flex-col md:flex-row gap-12 items-center team-card opacity-0 translate-y-20">
-            <div class="w-full md:w-1/3 relative group">
-              <div class="absolute inset-0 bg-brand-orange rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
-              <img src="./img/vítor.svg" alt="Vitor Oliveira" class="relative w-full h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/10 transition-transform duration-500 group-hover:-translate-y-2"/>
-            </div>
-            <div class="w-full md:w-2/3 text-white flex flex-col items-start">
-              <h3 class="font-display text-4xl font-bold mb-4 text-brand-orange">Vitor Oliveira</h3>
-              <p class="font-monts text-lg leading-relaxed text-gray-200 mb-10 font-light border-l-4 border-brand-orange pl-6">
-                Experiência em Orçamento, Planejamento, Controle e Execução de obras e conhecimento de mídias digitais, tráfego pago e marketing.
-              </p>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
 
     <section class="cta-section relative py-24 px-4 sm:px-6 lg:px-8 bg-deep-blue overflow-hidden">
-      <div class="absolute inset-0 z-0 opacity-20">
-       
-      </div>
       <div class="relative z-10 max-w-4xl mx-auto text-center border-4 border-brand-orange/50 p-6 md:p-12 rounded-2xl bg-black/30 backdrop-blur-sm shadow-glow translate-y-20 opacity-0">
-          <span class="text-brand-orange font-monts font-bold tracking-[0.3em] uppercase text-sm block mb-4">PRONTO PARA CONSTRUIR?</span>
+          
           <h2 class="font-display text-4xl md:text-6xl text-white font-bold mb-6 leading-tight">
-              Vamos Tirar Seu Projeto do Papel
+              Vamos Construir seu Galpão?
           </h2>
           <p class="text-lg text-gray-300 font-monts mb-10 max-w-2xl mx-auto">
-              Garanta **preço de fábrica** e a execução mais rápida do mercado com nossa expertise Turnkey.
+              Garanta **Preço de Fábrica** na compra de insumos e produtos. Contrate nossa empresa para executar com qualidade e rapidez a obra de seu galpão.  Venha para Fábrica de Galpões e escolha a melhor forma de construir.
           </p>
           <a href="contato.html" class="inline-flex bg-brand-orange text-white font-bold py-4 px-12 rounded-full shadow-2xl hover:bg-[#d9551a] hover:scale-105 transition-all duration-300 border-2 border-white/50">
               Solicitar Orçamento Gratuito
@@ -302,18 +297,19 @@
       </div>
     </section>
 
-     <footer class="font-monts">
+     
+   <footer class="font-monts">
       <div class="bg-[#00417E] text-white py-12 md:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             <div class="space-y-6">
-              <img src="./img/Logo galpao.svg" alt="Fábrica de Galpão" class="h-16 w-auto" />
+              <img src="./img/Logo galpao.svg" alt="Fábrica de Galpão" class="h-16 w-auto brightness-0 invert" />
               <p class="text-sm leading-relaxed text-gray-200">
                 Soluções completas em estruturas e coberturas metálicas para o seu projeto
               </p>
               <div class="text-sm space-y-1 text-gray-200 pt-2">
-                <p>Rua Dr Jarbas Vidal Gomes, 3, sala 106</p>
+                <p>Rua Dr Jarbas Vidal Gomes, 30, sala 106</p>
                 <p>Cidade Nova, Belo Horizonte, MG</p>
                 <p class="font-bold pt-1">+55(31) 9 9559-4889</p>
                 <p>comercial@fabricadegalpoes.com.br</p>
@@ -380,99 +376,85 @@
     <script>
        gsap.registerPlugin(ScrollTrigger);
 
-        /* LÓGICA DO MENU HAMBURGER */
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const iconOpen = document.getElementById('icon-open');
-        const iconClose = document.getElementById('icon-close');
-        const header = document.querySelector('header');
+       /* LÓGICA DO MENU HAMBURGER */
+       const menuButton = document.getElementById('mobile-menu-button');
+       const mobileMenu = document.getElementById('mobile-menu');
+       const iconOpen = document.getElementById('icon-open');
+       const iconClose = document.getElementById('icon-close');
 
-        menuButton.addEventListener('click', () => {
-            // Toggle da classe de transformação para deslizar o menu
-            mobileMenu.classList.toggle('mobile-menu-closed');
-            mobileMenu.classList.toggle('mobile-menu-open');
-            
-            // Toggle dos ícones
-            iconOpen.classList.toggle('hidden');
-            iconClose.classList.toggle('hidden');
+       menuButton.addEventListener('click', () => {
+           mobileMenu.classList.toggle('mobile-menu-closed');
+           mobileMenu.classList.toggle('mobile-menu-open');
+           iconOpen.classList.toggle('hidden');
+           iconClose.classList.toggle('hidden');
+           document.body.classList.toggle('overflow-hidden');
+       });
 
-            // Adiciona/Remove classe no body para desabilitar o scroll ao abrir o menu
-            document.body.classList.toggle('overflow-hidden');
-            
-            // Ajuste do header (opcional, mas bom para z-index)
-            header.classList.toggle('bg-transparent');
-            header.classList.toggle('bg-[#EAEAEA]'); 
-        });
+       const menuLinks = mobileMenu.querySelectorAll('a');
+       menuLinks.forEach(link => {
+           link.addEventListener('click', () => {
+               if (mobileMenu.classList.contains('mobile-menu-open')) {
+                   mobileMenu.classList.remove('mobile-menu-open');
+                   mobileMenu.classList.add('mobile-menu-closed');
+                   iconOpen.classList.remove('hidden');
+                   iconClose.classList.add('hidden');
+                   document.body.classList.remove('overflow-hidden');
+               }
+           });
+       });
 
-        // Fechar menu ao clicar em um link (opcional, mas bom)
-        const menuLinks = mobileMenu.querySelectorAll('a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('mobile-menu-open')) {
-                    mobileMenu.classList.remove('mobile-menu-open');
-                    mobileMenu.classList.add('mobile-menu-closed');
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                    header.classList.add('bg-transparent');
-                }
-            });
-        });
+       // 1. Parallax Suave (Hero)
+       gsap.to(".parallax-bg img", {
+         yPercent: 30,
+         ease: "none",
+         scrollTrigger: { trigger: "body", start: "top top", end: "bottom top", scrub: true }
+       });
 
+       // 2. Entradas
+       const tl = gsap.timeline();
+       tl.to(".hero-title", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out", delay: 0.2 })
+         .to(".hero-text", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1.0");
 
-        // 1. Parallax Suave (Hero)
-        gsap.to(".parallax-bg img", {
-          yPercent: 30,
-          ease: "none",
-          scrollTrigger: { trigger: "body", start: "top top", end: "bottom top", scrub: true }
-        });
+       const slowAnim = { opacity: 1, y: 0, x: 0, duration: 1.8, ease: "power2.out" }; 
 
-        // 2. Entradas (Mais lentas - Duration aumentada para 1.5s)
-        const tl = gsap.timeline();
-        tl.to(".hero-subtitle", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out", delay: 0.2 })
-          .to(".hero-title", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1.2")
-          .to(".hero-text", { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1.2");
+       // Seção História
+       gsap.to(".img-col-1", { ...slowAnim, scrollTrigger: { trigger: ".img-col-1", start: "top 80%" } });
+       gsap.to(".img-col-2", { ...slowAnim, delay: 0.3, scrollTrigger: { trigger: ".img-col-2", start: "top 80%" } });
+       gsap.to(".text-col", { ...slowAnim, duration: 2, scrollTrigger: { trigger: ".text-col", start: "top 80%" } });
 
-        const slowAnim = { opacity: 1, y: 0, x: 0, duration: 1.8, ease: "power2.out" }; // Animação base bem lenta
+       // Checks
+       gsap.to(".check-item", {
+         scrollTrigger: { trigger: ".text-col", start: "top 70%" },
+         opacity: 1, x: 0, duration: 1, stagger: 0.25, ease: "power2.out"
+       });
 
-        // Seção História
-        gsap.to(".img-col-1", { ...slowAnim, scrollTrigger: { trigger: ".img-col-1", start: "top 80%", toggleActions: "play reverse play reverse" } });
-        gsap.to(".img-col-2", { ...slowAnim, delay: 0.3, scrollTrigger: { trigger: ".img-col-2", start: "top 80%", toggleActions: "play reverse play reverse" } });
-        gsap.to(".text-col", { ...slowAnim, duration: 2, scrollTrigger: { trigger: ".text-col", start: "top 80%", toggleActions: "play reverse play reverse" } });
+       // Quote
+       gsap.to(".quote-section", {
+           scrollTrigger: { trigger: ".quote-section", start: "top 75%" },
+           opacity: 1, duration: 2, ease: "power2.out"
+       });
 
-        // Checks (Cascata lenta)
-        gsap.to(".check-item", {
-          scrollTrigger: { trigger: ".text-col", start: "top 70%", toggleActions: "play reverse play reverse" },
-          opacity: 1, x: 0, duration: 1, stagger: 0.25, ease: "power2.out"
-        });
+       // Pilares
+       gsap.to(".pillar-card", {
+         scrollTrigger: { trigger: ".pillar-card", start: "top 80%" },
+         opacity: 1, y: 0, duration: 1.5, stagger: 0.3, ease: "power2.out"
+       });
+       gsap.to(".sticky-image", {
+         scrollTrigger: { trigger: ".sticky-image", start: "top 80%" },
+         opacity: 1, x: 0, duration: 2, ease: "power2.out"
+       });
 
-        // Nova Seção Quote
-        gsap.to(".quote-section", {
-            scrollTrigger: { trigger: ".quote-section", start: "top 75%", toggleActions: "play reverse play reverse" },
-            opacity: 1, duration: 2, ease: "power2.out"
-        });
-
-        // Pilares (Stagger lento)
-        gsap.to(".pillar-card", {
-          scrollTrigger: { trigger: ".pillar-card", start: "top 80%", toggleActions: "play reverse play reverse" },
-          opacity: 1, y: 0, duration: 1.5, stagger: 0.3, ease: "power2.out"
-        });
-        gsap.to(".sticky-image", {
-          scrollTrigger: { trigger: ".sticky-image", start: "top 80%", toggleActions: "play reverse play reverse" },
-          opacity: 1, x: 0, duration: 2, ease: "power2.out"
-        });
-
-        // Time
-        gsap.to(".team-card", {
-          scrollTrigger: { trigger: ".team-card", start: "top 85%", toggleActions: "play reverse play reverse" },
-          opacity: 1, y: 0, duration: 1.8, stagger: 0.4, ease: "power2.out"
-        });
-        
-        // Novo CTA (Chamada para Ação)
-        gsap.to(".cta-section > div", {
-          scrollTrigger: { trigger: ".cta-section", start: "top 85%", toggleActions: "play none none none" },
-          opacity: 1, y: 0, duration: 1.5, ease: "power2.out"
-        });
+       // Time (Liderança)
+       gsap.to(".team-card", {
+         scrollTrigger: { trigger: ".team-card", start: "top 80%" },
+         opacity: 1, y: 0, duration: 1.5, stagger: 0.3, ease: "power2.out"
+       });
+       
+       // CTA
+       gsap.to(".cta-section > div", {
+         scrollTrigger: { trigger: ".cta-section", start: "top 85%" },
+         opacity: 1, y: 0, duration: 1.5, ease: "power2.out"
+       });
     </script>
   </body>
 </html>

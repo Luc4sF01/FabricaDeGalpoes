@@ -56,7 +56,7 @@
 
       /* Estilização dos inputs do formulário */
       .form-input {
-        @apply w-full p-4 border border-gray-300 rounded-lg bg-white focus:ring-4 focus:ring-fdg-accent-orange/50 focus:border-fdg-accent-orange transition duration-300 font-monts shadow-sm;
+        @apply w-full p-4 border border-gray-300 rounded-lg bg-white focus:ring-4 focus:ring-fdg-accent-orange/50 focus:border-fdg-accent-orange transition duration-300 font-monts shadow-sm outline-none;
       }
 
       /* Sombra Especular e Efeito 3D sutil no formulário */
@@ -108,7 +108,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
           
           <a href="index.html" class="flex-shrink-0">
-            <img class="w-40 md:w-[220px]" src="./img/Logo galpao.svg" alt="Fábrica de Galpão" />
+            <img class="w-40 md:w-[220px] brightness-0 invert" src="./img/Logo galpao.svg" alt="Fábrica de Galpão" />
           </a>
 
           <nav class="hidden md:block">
@@ -145,9 +145,7 @@
       </nav>
       <div class="relative z-10 flex-grow flex items-center px-4 sm:px-8">
         <div class="max-w-7xl mx-auto w-full pt-20 pb-10 text-center">
-          <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-4 animate-in">
-            Conecte sua Visão à Realidade
-          </h1>
+          
           <p class="text-xl md:text-2xl text-gray-300 font-monts max-w-3xl mx-auto animate-in-delay">
             Preencha o formulário abaixo ou utilize nossos canais diretos. Estamos prontos para construir seu próximo galpão.
           </p>
@@ -193,8 +191,8 @@
                                 <svg class="w-6 h-6 text-fdg-accent-orange flex-shrink-0 mt-1 icon-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                 <div>
                                     <p class="font-semibold text-base">Endereço:</p>
-                                    <p class="text-sm">Rua Dr Jarbas Vidal Gomes, 3, sala 106<br>Cidade Nova, Belo Horizonte, MG</p>
-                                    <a href="https://www.google.com/maps/search/Rua+Dr+Jarbas+Vidal+Gomes,+3,+sala+106+Cidade+Nova,+belo+horizonte" target="_blank" class="text-xs text-fdg-primary-blue hover:text-fdg-accent-orange hover:underline mt-1 block">
+                                    <p class="text-sm">Rua Dr Jarbas Vidal Gomes, 30, sala 106<br>Cidade Nova, Belo Horizonte, MG</p>
+                                    <a href="https://maps.google.com" target="_blank" class="text-xs text-fdg-primary-blue hover:text-fdg-accent-orange hover:underline mt-1 block">
                                         Ver no Google Maps
                                     </a>
                                 </div>
@@ -208,8 +206,8 @@
                             Localização (Escritório Central)
                         </h2>
                         <div class="h-64 relative">
-                             <iframe 
-                                src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Rua%20Dr%20Jarbas%20Vidal%20Gomes,%203,%20Belo%20Horizonte&t=&z=14&ie=UTF8&iwloc=B&output=embed" 
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.365377033508!2d-43.9298286!3d-19.9090333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69bc360b13851%3A0x6e7e008b688d070!2sR.%20Dr.%20Jarbas%20Vidal%20Gomes%2C%2030%20-%20Cidade%20Nova%2C%20Belo%20Horizonte%20-%20MG%2C%2031170-070!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
                                 width="100%" 
                                 height="100%" 
                                 style="border:0;" 
@@ -227,7 +225,7 @@
                             Solicite seu Orçamento Detalhado
                         </h2>
                         <p class="text-lg font-monts text-gray-600 mb-8">
-                            Nossa equipe de engenharia responderá em até 24 horas úteis.
+                            Nossa equipe de engenharia responderá em até 24 horas.
                         </p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -256,7 +254,7 @@
                             </div>
                             <div class="md:col-span-2">
                                 <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">Detalhes do seu projeto (opcional)</label>
-                                <textarea name="Detalhes" id="mensagem" rows="4" placeholder="Informe dimensões, localização da obra ou qualquer especificação importante." class="form-input"></textarea>
+                                <textarea name="Detalhes" id="mensagem" rows="4" placeholder="Informe dimensões, localização da obra ou qualquer especificação importante." class="form-input resize-y"></textarea>
                             </div>
 
                             <div class="md:col-span-2 flex items-center">
@@ -286,12 +284,12 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             <div class="space-y-6">
-              <img src="./img/Logo galpao.svg" alt="Fábrica de Galpão" class="h-16 w-auto" />
+              <img src="./img/Logo galpao.svg" alt="Fábrica de Galpão" class="h-16 w-auto brightness-0 invert" />
               <p class="text-sm leading-relaxed text-gray-200">
                 Soluções completas em estruturas e coberturas metálicas para o seu projeto
               </p>
               <div class="text-sm space-y-1 text-gray-200 pt-2">
-                <p>Rua Dr Jarbas Vidal Gomes, 3, sala 106</p>
+                <p>Rua Dr Jarbas Vidal Gomes, 30, sala 106</p>
                 <p>Cidade Nova, Belo Horizonte, MG</p>
                 <p class="font-bold pt-1">+55(31) 9 9559-4889</p>
                 <p>comercial@fabricadegalpoes.com.br</p>
@@ -360,12 +358,8 @@
       /* LÓGICA DO MENU HAMBURGER (Slide-out menu) */
       const menuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
-      
-      // Adiciona IDs aos ícones do SVG do botão Hamburger para torná-lo funcional
-      // A estrutura já está no HTML, só precisamos do JS
       const iconOpen = document.getElementById('icon-open');
       const iconClose = document.getElementById('icon-close');
-
 
       function toggleMenu() {
           const isMenuOpen = mobileMenu.classList.contains('mobile-menu-open');
@@ -381,54 +375,56 @@
 
       menuButton.addEventListener('click', toggleMenu);
       
-      // Fechar menu ao clicar em um link (melhora a UX)
       const menuLinks = mobileMenu.querySelectorAll('a');
       menuLinks.forEach(link => {
           link.addEventListener('click', () => {
-              // Verifica se o menu está aberto antes de tentar fechar
               if (mobileMenu.classList.contains('mobile-menu-open')) {
                   toggleMenu(); 
               }
           });
       });
       
-      /* LÓGICA DE ENVIO DO FORMULÁRIO PARA WHATSAPP */
+      /* LÓGICA DE ENVIO DO FORMULÁRIO PARA WHATSAPP (CORRIGIDA E PROFISSIONAL) */
       document.getElementById('contact-form').addEventListener('submit', function(event) {
           event.preventDefault(); // Impede o envio padrão
 
           // 1. Coleta os dados
-          const nome = document.getElementById('nome').value || 'Não Informado';
-          const email = document.getElementById('email').value || 'Não Informado';
-          const telefone = document.getElementById('telefone').value || 'Não Informado';
+          const nome = document.getElementById('nome').value.trim() || 'Não Informado';
+          const email = document.getElementById('email').value.trim() || 'Não Informado';
+          const telefone = document.getElementById('telefone').value.trim() || 'Não Informado';
           const servicoSelect = document.getElementById('servico');
           const servico = servicoSelect.options[servicoSelect.selectedIndex].text || 'Não Selecionado';
-          const detalhes = document.getElementById('mensagem').value || 'Nenhum detalhe adicional fornecido.';
+          const detalhes = document.getElementById('mensagem').value.trim() || 'Nenhum detalhe adicional fornecido.';
 
-          // 2. Constrói a mensagem com formatação correta para WhatsApp
-          let message = 
-              `*📢 NOVO ORÇAMENTO VIA SITE (WHATSAPP)*` + `%0A` +
-              `-----------------------------------------------` + `%0A` +
-              `*Nome:* ${nome}` + `%0A` +
-              `*Telefone:* ${telefone}` + `%0A` +
-              `*Email:* ${email}` + `%0A` +
-              `*Serviço Desejado:* ${servico}` + `%0A` +
-              `*Detalhes do Projeto:*` + `%0A` +
-              `${detalhes}` + `%0A` +
-              `-----------------------------------------------` + `%0A` +
-              `*Por favor, aguarde nossa resposta, retornaremos o mais breve possível.*`;
-
+          // 2. Constrói a mensagem linha por linha para garantir formatação limpa e técnica
+          // Sem Emojis, usando separadores visuais com traços
+          let message = "SOLICITAÇÃO DE ORÇAMENTO (VIA SITE)\n\n";
+          message += "-------------------------------------------\n";
+          message += "DADOS DO CLIENTE\n";
+          message += "-------------------------------------------\n";
+          message += "Nome: " + nome + "\n";
+          message += "Email: " + email + "\n";
+          message += "Telefone: " + telefone + "\n\n";
+          
+          message += "-------------------------------------------\n";
+          message += "DETALHES DO PROJETO\n";
+          message += "-------------------------------------------\n";
+          message += "Serviço de Interesse: " + servico + "\n";
+          message += "Descrição/Observações:\n" + detalhes + "\n\n";
+          
+          message += "-------------------------------------------\n";
+          message += "Por favor, aguarde nossa resposta, retornaremos o mais breve possível.";
 
           // 3. Codifica a mensagem para URL e redireciona
-          const encodedMessage = encodeURIComponent(message.trim());
+          const encodedMessage = encodeURIComponent(message);
           const whatsappLink = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
           
-          // Abre o WhatsApp
           window.open(whatsappLink, '_blank');
       });
 
       // --- GSAP Animations ---
 
-      // 1. Animação de entrada do conteúdo principal (GSAP)
+      // 1. Animação de entrada do conteúdo principal
       gsap.from(".contact-section > div > div > div", { 
           opacity: 0, 
           y: 50, 
@@ -438,7 +434,7 @@
           delay: 0.5 
       });
 
-      // 2. Animação dos títulos do Hero (Já estavam otimizadas)
+      // 2. Animação dos títulos do Hero
       gsap.from(".animate-in", {
         y: 20,
         opacity: 0,
